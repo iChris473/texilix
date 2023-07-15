@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Texilix</title>
+    <link rel="icon" href="./images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Nunito&family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #0a0a0c;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                blue: '#01f6fa'
+              }
+            }
+          }
         }
-        .flex-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        .gif {
-            width: 400px;
-            object-fit: contain;
-        }
-        h1 {
-            color: #01f6fa;
-            font-size: 4rem;
-        }
-        .nunito {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="flex-center">
-    <h1 class="nunito">Texilix</h1>
-    <img class="gif" src="./images/pinksalee.gif" alt="Textilix">
+<body>
+   <!-- NAV SECTION -->
+    <nav class="flex-center px-5 py-10">
+        <div class="nav flex-between w-[95%] mx-auto max-w-[1100px]">
+            <div class="flex-center gap-2">
+                <img src="./images/logo.png" alt="logo" class="h-12 object-contain">
+                <h1 class="text-2xl cont">Texilix</h1>
+            </div>
+            <div class="flex-center gap-5">
+                <a href="#" class="nunito link">Buy $Texilix</a>
+                <a href="#" class="nunito link">Whitepaper</a>
+                <a href="https://app.texilix.com" class="blue-grad nav-btn px-5 py-3 rounded-lg blue-grad cont link-btn turner">
+                  <p class="turn-child">Go to app</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO SECTION -->
+    <section class="mt-10 hero flex-center">
+      <img src="./images/Flare.png" class="hero-bg">
+      <div class="flex-between w-[95%] mx-auto max-w-[1100px]">
+        <div class="flex flex-start flex-col gap-5">
+          <h1 class="text-6xl text-blue cont">Secure DeFi <br> Infrastructure</h1>
+          <p class="nunito text-3xl">Decentralized, scalable, trusted. <br> Welcome to Texilix</p>
+          <div class="flex flex-start gap-5 mt-5">
+            <a href="https://app.texilix.com" class="blue-grad px-10 py-5 rounded-lg cont link-btn turner"> <p class="turn-child">Go to app</p></a>
+            <a href="https://doc.texilix.com" class="border-grad px-10 py-4 rounded-lg cont link-btn">Whitepaper</a>
+          </div>
+        </div>
+        <div class="gif">
+          <img src="./images/Texilix.gif" alt="" class="gifs">
+        </div>
+      </div>
+    </section>
 </body>
 </html>

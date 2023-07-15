@@ -1,0 +1,98 @@
+@font-face {
+    font-family: conthrax;
+    src: url('./images/conthrax-sb.otf');
+}
+
+body {
+    background: #0a0a0c;
+    color: rgb(228, 228, 228);
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.link:hover {
+    color: #0182fa;
+    transform: scale(1.1);
+}
+.link-btn:hover {
+    transform: scale(1.1);
+}
+.gif {
+    z-index: 9
+}
+.nunito {
+    font-family: 'Nunito', sans-serif;
+}
+.monts {
+    font-family: 'Montserrat', sans-serif;
+}
+.cont {
+    font-family: conthrax;
+}
+.blue-grad {
+    background-color: #01f6fa;
+    background-image: linear-gradient(63deg, #0182fa, #01f6fa);
+    color: black;
+}
+.border-grad {
+    border: 1px solid #01f6fa;
+    border-color: linear-gradient(63deg, #016dfa, #01f6fa);
+}
+.hero {
+    position: relative;
+    background-image: radial-gradient(circle closest-corner at 12% 50%, #01f6fa1e 61%, #0c0c0c);
+    height: 60vh;
+}
+.hero-bg {
+    position: absolute;
+    top: -25%;
+    right: -8%;
+    z-index: 1;
+}
+.nav {
+    z-index: 10 !important;
+}
+.turner {
+    position: relative;
+    -ms-align-items: 'center';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #01f6fa00;
+}
+.turner::before{
+    content: "";
+    background: linear-gradient(#3a0061, #9a01fa);
+    width: 30%;
+    height: 1000%;
+    position: absolute;
+    animation: rotate 5s linear infinite;
+}
+.turner::after{
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    background: linear-gradient(63deg, #0182fa, #01f6fa);
+    inset: 4px;
+}
+
+.turn-child {
+    z-index: 2;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}
