@@ -22,37 +22,101 @@
     </script>
     <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body class="relative">
    <!-- NAV SECTION -->
     <nav class="flex-center px-5 py-10">
         <div class="nav flex-between w-[95%] mx-auto max-w-[1100px]">
             <div class="flex-center gap-2">
-                <img src="./images/logo.png" alt="logo" class="h-12 object-contain">
-                <h1 class="text-2xl cont">Texilix</h1>
+                <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
+                <h1 class="md:text-2xl cont text-sm">Texilix</h1>
             </div>
             <div class="flex-center gap-5">
-                <a href="#" class="nunito link">Buy $Texilix</a>
-                <a href="#" class="nunito link">Whitepaper</a>
+                <a href="#" class="nunito link hidden sm:block">Buy $TEX</a>
+                <a href="#" class="nunito link hidden sm:block">Whitepaper</a>
                 <a href="https://app.texilix.com" class="blue-grad nav-btn px-5 py-3 rounded-lg blue-grad cont link-btn turner">
-                  <p class="turn-child">Go to app</p>
+                  <p class="turn-child text-sm sm:text-md">Go to app</p>
                 </a>
+                <!-- <img src="./images/barsIcon.svg" alt="bars-icon" class="h-7"> -->
             </div>
         </div>
     </nav>
+    <!-- MOBILE NAV -->
+    <section class="mobileNav center">
+      <div>
+        <a href="#" class="cont">Home</a>
+        <a href="#" class="cont link">Buy $TEX</a>
+        <a href="#" class="cont link">Whitepaper</a>
+      </div>
+    </section>
     <!-- HERO SECTION -->
     <section class="mt-10 hero flex-center">
       <img src="./images/Flare.png" class="hero-bg">
-      <div class="flex-between w-[95%] mx-auto max-w-[1100px]">
-        <div class="flex flex-start flex-col gap-5">
-          <h1 class="text-6xl text-blue cont">Secure DeFi <br> Infrastructure</h1>
-          <p class="nunito text-3xl">Decentralized, scalable, trusted. <br> Welcome to Texilix</p>
-          <div class="flex flex-start gap-5 mt-5">
-            <a href="https://app.texilix.com" class="blue-grad px-10 py-5 rounded-lg cont link-btn turner"> <p class="turn-child">Go to app</p></a>
-            <a href="https://doc.texilix.com" class="border-grad px-10 py-4 rounded-lg cont link-btn">Whitepaper</a>
+      <div class="flex-between w-[95%] mx-auto max-w-[1100px] flex-col md:flex-row">
+        <div class="flex items-center justify-center md:items-start md:justify-start flex-col gap-5 z-10">
+          <h1 class="text-2xl md:text-4xl lg:text-5xl text-blue cont text-center md:text-start">The Ultimate Toolkit <br> for all Defi Traders</h1>
+          <p class="monts text-lg sm:text-3xl text-center md:text-start">Streamlining preliminary sales research <br> via a robust and intuitive digital platform.</p>
+          <div class="flex items-center justify-center md:justify-start gap-5 mt-5">
+            <a href="https://app.texilix.com" class="blue-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn turner">
+              <p class="turn-child text-sm md:text-lg">Launch App</p>
+            </a>
+            <a href="https://doc.texilix.com" class="border-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn text-sm md:text-lg turner"> 
+              <p class="turn-child text-sm md:text-lg">Whitepaper</p>
+            </a>
           </div>
         </div>
         <div class="gif">
-          <img src="./images/Texilix.gif" alt="" class="gifs">
+          <img src="./images/Texilix.gif" alt="" class="h-[300px] mt-10 md:mt-0 object-contain md:h-[400px]">
+        </div>
+      </div>
+    </section>
+    <!-- FEATURES -->
+    <section class="my-20">
+      <div class="flex-center flex-col text-center gap-5 m-5">
+        <h1 class="text-blue cont text-4xl md:text-4xl lg:text-5xl">Functionalities</h1>
+        <p class="monts text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing. <br> Animi autem labore distinctio. At eum consequuntur earum eligendi totam non. Iste.</p>
+      </div>
+      <div class="w-[95%] mx-auto flex-center mt-10">
+        <div class="flex-center flex-wrap gap-5">
+          <div class="w-[250px] p-5 rounded-lg turner border-grad">
+            <div class="flex-center flex-col text-center gap-5 turn-child">
+              <img src="./images/Advanced Filtering and Sorting.png" alt="feature" class="h-[100px] object-contain">
+              <p class="cont">Advanced Filtering and Sorting</p>
+              <a href="https://app.texilix.com" class="blue-grad py-2 w-full rounded-lg cont text-sm">Launch App</a>
+              <a href="https://app.texilix.com" class="border-grad py-2 w-full rounded-lg cont text-sm">Whitepaper</a>
+            </div>
+          </div>
+          <div class="w-[250px] p-5 rounded-lg turner border-grad">
+            <div class="flex-center flex-col text-center gap-5 turn-child">
+              <img src="./images/Due Diligence Support.png" alt="feature" class="h-[100px] object-contain">
+              <p class="cont">Due Diligence Support</p>
+              <a href="https://app.texilix.com" class="blue-grad py-2 w-full rounded-lg cont text-sm">Launch App</a>
+              <a href="https://app.texilix.com" class="border-grad py-2 w-full rounded-lg cont text-sm">Whitepaper</a>
+            </div>
+          </div>
+          <div class="w-[250px] p-5 rounded-lg turner border-grad">
+            <div class="flex-center flex-col text-center gap-5 turn-child">
+              <img src="./images/Investor Dashboard.png" alt="feature" class="h-[100px] object-contain">
+              <p class="cont">Investor Dashboard</p>
+              <a href="https://app.texilix.com" class="blue-grad py-2 w-full rounded-lg cont text-sm">Launch App</a>
+              <a href="https://app.texilix.com" class="border-grad py-2 w-full rounded-lg cont text-sm">Whitepaper</a>
+            </div>
+          </div>
+          <div class="w-[250px] p-5 rounded-lg turner border-grad">
+            <div class="flex-center flex-col text-center gap-5 turn-child">
+              <img src="./images/Multi-Presale Launchpad.png" alt="feature" class="h-[100px] object-contain">
+              <p class="cont">Multi-Presale Launchpad</p>
+              <a href="https://app.texilix.com" class="blue-grad py-2 w-full rounded-lg cont text-sm">Launch App</a>
+              <a href="https://app.texilix.com" class="border-grad py-2 w-full rounded-lg cont text-sm">Whitepaper</a>
+            </div>
+          </div>
+          <div class="w-[250px] p-5 rounded-lg turner border-grad">
+            <div class="flex-center flex-col text-center gap-5 turn-child">
+              <img src="./images/Real-Time Insights and Analytics.png" alt="feature" class="h-[100px] object-contain">
+              <p class="cont">Real-Time Insights and Analytics</p>
+              <a href="https://app.texilix.com" class="blue-grad py-2 w-full rounded-lg cont text-sm">Launch App</a>
+              <a href="https://app.texilix.com" class="border-grad py-2 w-full rounded-lg cont text-sm">Whitepaper</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
