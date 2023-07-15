@@ -89,7 +89,7 @@ body{
 }
 .turner::before{
     content: "";
-    background: #01f6fa;
+    background: linear-gradient(63deg, #0182fa, #01f6fa);
     width: 25%;
     height: 1000%;
     position: absolute;
@@ -127,12 +127,20 @@ body{
     display: none;
 }
 
+.blue-text {
+    background-image: linear-gradient(63deg, #0182fa, #01f6fa);
+    -webkit-background-clip: text; /* For Safari and older versions of Chrome */
+    -moz-background-clip: text; /* For Firefox */
+    background-clip: text;
+    color: transparent;
+}
+
 
 /* MEDIA QUERIES */
 @media (max-width: 639px) {
     
-    body, section {
-        overflow-y: scroll;
+    section, nav, div {
+        overflow-y: hidden !important;
         overflow-x: hidden !important;
     }
     .roadCont {
