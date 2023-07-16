@@ -65,9 +65,9 @@ body{
     border-color: linear-gradient(63deg, #016dfa, #01f6fa);
 }
 .hero {
-    position: relative;
     background-image: radial-gradient(circle closest-corner at 12% 50%, #01f6fa1e 61%, #0c0c0c);
-    height: 60vh;
+    position: relative;
+    min-height: 60vh;
 }
 .hero-bg {
     position: absolute;
@@ -139,9 +139,11 @@ body{
 /* MEDIA QUERIES */
 @media (max-width: 639px) {
     
-    section, nav, div {
-        overflow-y: hidden !important;
-        overflow-x: hidden !important;
+    section,
+    nav,
+    div,
+    footer {
+        overflow: hidden !important;
     }
     .roadCont {
         grid-auto-columns: 60%;
