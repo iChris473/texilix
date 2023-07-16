@@ -36,6 +36,11 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.flex-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .link:hover {
     color: #0182fa;
     transform: scale(1.1);
