@@ -74,6 +74,11 @@ body{
     position: relative;
     min-height: 60vh;
 }
+.backers {
+    background-image: radial-gradient(circle closest-corner at 60% 50%, #01f6fa0f 41%, #0c0c0c);
+    position: relative;
+    min-height: 60vh;
+}
 .hero-bg {
     position: absolute;
     top: -25%;
