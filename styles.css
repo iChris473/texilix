@@ -26,6 +26,9 @@ body{
     background: #0a0a0c;
     color: rgb(228, 228, 228);
 }
+.circle {
+    border-radius: 50%;
+}
 .flex-center {
     display: flex;
     align-items: center;
@@ -43,7 +46,7 @@ body{
 }
 .link:hover {
     color: #0182fa;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .link-btn:hover {
     transform: scale(1.1);
