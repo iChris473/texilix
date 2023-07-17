@@ -122,6 +122,9 @@ body{
     width: 30% !important;
     height: 10% !important;
 }
+.cookie-turner::after {
+    background: rgb(34, 34, 34);
+}
 
 .turn-child {
     z-index: 2;
@@ -146,6 +149,48 @@ body{
     -moz-background-clip: text; /* For Firefox */
     background-clip: text;
     color: transparent;
+}
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden !important;
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998
+}
+.modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    z-index: -1;
+  }
+
+.cookie-modal {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.cookie-cont {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    z-index: 9999;
+    height: 65vh;
+    width: 85vw;
+    max-width: 500px;
 }
 
 

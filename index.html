@@ -1,44 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texilix</title>
-    <link rel="icon" href="./images/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Nunito:wght@600&family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                blue: '#01f6fa'
-              }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texilix</title>
+  <link rel="icon" href="./images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Nunito:wght@600&family=Poppins:wght@500&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            blue: '#01f6fa'
           }
         }
-    </script>
-    <link rel="stylesheet" href="./styles.css">
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="relative">
-   <!-- NAV SECTION -->
+
+<body>
+  <!-- LOADER -->
+  <div id="loading-animation" class="flex-center" style="width: 100%; height: 100vh; overflow: hidden;">
+    <img src="./images/Loader.gif" class="h-[200px] object-contain" style="object-fit: contain; width: 200px;">
+  </div>
+
+  <div id="page-content" class="body cookie-modal relative" style="display: none;">
+    <div class="modal"></div>
+    <!-- COOKIES -->
+    <div class="shadow-lg rounded-xl p-5 turner absolute cookie-cont cookie-turner">
+      <div class="turn-child nunito flex-center flex-col gap-5 m-5">
+        <img src="./images/logo.png" alt="texilix-logo" class="h-[100px] md:h-[150px] object-contain">
+        <h1 class="text-4xl">Cookies Notice</h1>
+        <p class="text-center opacity-70">This website makes use of cookies to improve your experience within our
+          website.</p>
+        <p class="text-md text-center opacity-70">
+          By continuing to view this website, you agree to our
+          <a href="#" class="blue-text">Terms of Use</a>, and
+          <a href="#" class="blue-text">Privacy Policy.</a>
+        </p>
+        <button class="px-10 py-4 blue-grad rounded-xl cont text-xl md:mt-20 cookie-btn">Accept</button>
+      </div>
+    </div>
+    <!-- NAV SECTION -->
     <nav class="flex-center px-5 pt-10">
-        <div class="nav flex-between w-[95%] mx-auto max-w-[1100px]">
-            <div class="flex-center gap-2">
-                <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
-                <h1 class="md:text-2xl cont text-sm">Texilix</h1>
-            </div>
-            <div class="flex-center gap-5">
-                <a href="#" class="nunito link hidden sm:block">Buy $TEX</a>
-                <a target="_blank" rel="noopener" href="https://doc.texilix.com" class="nunito link hidden sm:block">Whitepaper</a>
-                <a href="https://app.texilix.com" class="blue-grad nav-btn px-5 py-3 rounded-lg blue-grad cont link-btn turner">
-                  <p class="turn-child text-sm sm:text-md">Launch app</p>
-                </a>
-                <!-- <img src="./images/barsIcon.svg" alt="bars-icon" class="h-7"> -->
-            </div>
+      <div class="nav flex-between w-[95%] mx-auto max-w-[1100px]">
+        <div class="flex-center gap-2">
+          <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
+          <h1 class="md:text-2xl cont text-sm">Texilix</h1>
         </div>
+        <div class="flex-center gap-5">
+          <a href="#" class="nunito link hidden sm:block">Buy $TEX</a>
+          <a target="_blank" rel="noopener" href="https://doc.texilix.com"
+            class="nunito link hidden sm:block">Whitepaper</a>
+          <a href="https://app.texilix.com"
+            class="blue-grad nav-btn px-5 py-3 rounded-lg blue-grad cont link-btn turner">
+            <p class="turn-child text-sm sm:text-md">Launch app</p>
+          </a>
+          <!-- <img src="./images/barsIcon.svg" alt="bars-icon" class="h-7"> -->
+        </div>
+      </div>
     </nav>
     <!-- MOBILE NAV -->
     <section class="mobileNav center">
@@ -53,13 +83,17 @@
       <img src="./images/Flare.png" class="hero-bg">
       <div class="flex-between md:items-center w-[95%] mx-auto max-w-[1100px] flex-col-reverse md:flex-row">
         <div class="flex items-center justify-center md:items-start md:justify-start flex-col gap-5 z-10">
-          <h1 class="text-2xl md:text-4xl lg:text-5xl blue-text cont text-center md:text-start">The Ultimate Toolkit <br> for all Defi Traders</h1>
-          <p class="monts text-lg sm:text-3xl text-center md:text-start">Streamlining preliminary sales research <br> via a robust and intuitive digital platform.</p>
+          <h1 class="text-2xl md:text-4xl lg:text-5xl blue-text cont text-center md:text-start">The Ultimate Toolkit
+            <br> for all Defi Traders</h1>
+          <p class="monts text-lg sm:text-3xl text-center md:text-start">Streamlining preliminary sales research <br>
+            via a robust and intuitive digital platform.</p>
           <div class="flex items-center justify-center md:justify-start gap-5 mt-5">
-            <a href="https://app.texilix.com" class="blue-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn turner">
+            <a href="https://app.texilix.com"
+              class="blue-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn turner">
               <p class="turn-child text-sm md:text-lg">Launch App</p>
             </a>
-            <a href="https://doc.texilix.com" class="border-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn text-sm md:text-lg turner"> 
+            <a href="https://doc.texilix.com"
+              class="border-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn text-sm md:text-lg turner">
               <p class="turn-child text-sm md:text-lg">Whitepaper</p>
             </a>
           </div>
@@ -73,43 +107,55 @@
     <section class="my-20">
       <div class="flex-center flex-col text-center gap-5 m-5">
         <h1 class="cont text-2xl md:text-4xl blue-text">Key Features and <br> Functionalities</h1>
-        <p class="monts text-sm md:text-md text-center">Step into the future of DeFi trading with Texilix. Gain access to a wide range of cutting-edge tools <br> and resources designed to equip you for success in the decentralized finance landscape.</p>
+        <p class="monts text-sm md:text-md text-center">Step into the future of DeFi trading with Texilix. Gain access
+          to a wide range of cutting-edge tools <br> and resources designed to equip you for success in the
+          decentralized finance landscape.</p>
       </div>
       <div class="w-[95%] mx-auto flex-center mt-10">
         <div class="flex-center flex-wrap gap-5">
-          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad">
+          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad" data-aos="zoom-in-up"
+            data-aos-duration="1500">
             <div class="flex-center flex-col text-center gap-5 turn-child">
               <img src="./images/Advanced Filtering and Sorting.png" alt="feature" class="h-[100px] object-contain">
               <p class="cont">Advanced Filtering and Sorting</p>
-              <a href="https://doc.texilix.com/key-features-and-functionalities/advanced-filtering-and-sorting" class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
+              <a href="https://doc.texilix.com/key-features-and-functionalities/advanced-filtering-and-sorting"
+                class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
             </div>
           </div>
-          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad">
+          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad" data-aos="zoom-in-up"
+            data-aos-duration="1500">
             <div class="flex-center flex-col text-center gap-5 turn-child">
               <img src="./images/Due Diligence Support.png" alt="feature" class="h-[100px] object-contain">
               <p class="cont">Due Diligence Support</p>
-              <a href="https://doc.texilix.com/key-features-and-functionalities/due-diligence-support" class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
+              <a href="https://doc.texilix.com/key-features-and-functionalities/due-diligence-support"
+                class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
             </div>
           </div>
-          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad">
+          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad" data-aos="zoom-in-up"
+            data-aos-duration="1500">
             <div class="flex-center flex-col text-center gap-5 turn-child">
               <img src="./images/Investor Dashboard.png" alt="feature" class="h-[100px] object-contain">
               <p class="cont">Investor Dashboard</p>
-              <a href="https://doc.texilix.com/key-features-and-functionalities/investor-dashboard" class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
+              <a href="https://doc.texilix.com/key-features-and-functionalities/investor-dashboard"
+                class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
             </div>
           </div>
-          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad">
+          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad" data-aos="zoom-in-up"
+            data-aos-duration="1500">
             <div class="flex-center flex-col text-center gap-5 turn-child">
               <img src="./images/Multi-Presale Launchpad.png" alt="feature" class="h-[100px] object-contain">
               <p class="cont">Multi-Presale Launchpad</p>
-              <a href="https://doc.texilix.com/key-features-and-functionalities/multi-presale-launchpad" class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
+              <a href="https://doc.texilix.com/key-features-and-functionalities/multi-presale-launchpad"
+                class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
             </div>
           </div>
-          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad">
+          <div class="w-[300px] md:w-[250px] p-5 rounded-lg turner border-grad" data-aos="zoom-in-up"
+            data-aos-duration="1500">
             <div class="flex-center flex-col text-center gap-5 turn-child">
               <img src="./images/Real-Time Insights and Analytics.png" alt="feature" class="h-[100px] object-contain">
               <p class="cont">Real-Time Insights and Analytics</p>
-              <a href="https://doc.texilix.com/key-features-and-functionalities/real-time-insights-and-analytics" class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
+              <a href="https://doc.texilix.com/key-features-and-functionalities/real-time-insights-and-analytics"
+                class="blue-grad py-2 w-full rounded-lg cont text-sm">Learn more</a>
             </div>
           </div>
         </div>
@@ -119,26 +165,29 @@
     <section class="mt-40 mb-20">
       <h1 class="cont text-[2.1em] md:text-4xl blue-text text-center">Integrated Launchpads</h1>
       <div class="flex items-center justify-around flex-wrap mt-10 max-w-[1100px] w-[95%] mx-auto">
-        <div class="flex-center flex-col gap-3 w-[50%] sm:w-auto">
+        <div data-aos="fade-up" data-aos-duration="1500" class="flex-center flex-col gap-3 w-[50%] sm:w-auto">
           <img src="./images/PINKSALE.png" alt="pinksale" class="h-[90px] md:h-[130px] object-contain">
           <p class="cont text-center text-xl text-blue">Pinksale</p>
         </div>
-        <div class="flex-center flex-col gap-3 w-[50%] sm:w-auto">
+        <div data-aos="fade-up" data-aos-duration="1500" class="flex-center flex-col gap-3 w-[50%] sm:w-auto">
           <img src="./images/GEMPAD.png" alt="pinksale" class="h-[90px] md:h-[130px] object-contain">
           <p class="cont text-center text-xl text-blue">Gempad</p>
         </div>
-        <div class="flex-center flex-col gap-3 w-[50%] sm:w-auto mt-7 sm:mt-0">
+        <div data-aos="fade-up" data-aos-duration="1500"
+          class="flex-center flex-col gap-3 w-[50%] sm:w-auto mt-7 sm:mt-0">
           <img src="./images/UNCX.png" alt="pinksale" class="h-[90px] md:h-[130px] object-contain">
           <p class="cont text-center text-xl text-blue">UNCX</p>
         </div>
-        <div class="flex-center flex-col gap-3 w-[50%] sm:w-auto mt-7 sm:mt-0">
+        <div data-aos="fade-up" data-aos-duration="1500"
+          class="flex-center flex-col gap-3 w-[50%] sm:w-auto mt-7 sm:mt-0">
           <img src="./images/DXSALE.png" alt="pinksale" class="h-[90px] md:h-[130px] object-contain">
           <p class="cont text-center text-xl text-blue">DXSALE</p>
         </div>
       </div>
       <div class="flex-center flex-col mt-20 gap-5">
-        <p class="nunito text-lg mx-5 md:text-xl text-center opacity-80 text-white">Integrate your launchpad with Texilix <br> for enhanced performance and expand your reach.</p>
-        <a href="https://doc.texilix.com" class="blue-grad px-10 py-5 rounded-lg cont link-btn text-lg turner"> 
+        <p class="nunito text-lg mx-5 md:text-xl text-center opacity-80 text-white">Integrate your launchpad with
+          Texilix <br> for enhanced performance and expand your reach.</p>
+        <a href="https://doc.texilix.com" class="blue-grad px-10 py-5 rounded-lg cont link-btn text-lg turner">
           <p class="turn-child text-xl">Get Started</p>
         </a>
       </div>
@@ -147,32 +196,42 @@
     <section class="md:mt-40 mb-10 md:mb-20 md:py-20 backers" style="min-height: auto;">
       <h1 class="cont text-[1.8em] md:text-4xl blue-text text-center">Partners/Backers</h1>
       <div class="flex items-center justify-around flex-wrap mt-10 max-w-[1100px] w-[95%] mx-auto">
-          <img src="./images/Render.png" alt="render" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
-          <img src="./images/Pinksaleicon.png" alt="pinksale" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
-          <img src="./images/Solidproof.png" alt="Solidproof" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
-          <img src="./images/DexTools.png" alt="DexTools" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
-          <img src="./images/Assure DeFi.png" alt="Assure DeFi" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
-          <img src="./images/DEXVIEW.png" alt="dexview" class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img data-aos="zoom-out" data-aos-duration="1500" src="./images/Render.png" alt="render"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img data-aos="zoom-out" data-aos-duration="1500" src="./images/Pinksaleicon.png" alt="pinksale"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img data-aos="zoom-out" data-aos-duration="1500" src="./images/Solidproof.png" alt="Solidproof"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img data-aos="zoom-out" data-aos-duration="1500" src="./images/DexTools.png" alt="DexTools"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img data-aos="zoom-out" data-aos-duration="1500" src="./images/Assure DeFi.png" alt="Assure DeFi"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+        <img src="./images/DEXVIEW.png" alt="dexview"
+          class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
       </div>
     </section>
     <!-- FOOTERS -->
     <footer class="md:pt-32 sm:pb-10 pb-20">
-      <div class="flex items-center justify-start md:justify-between flex-col gap-5 md:gap-0 md:flex-row max-w-[1500px] mx-auto w-[90%]">
-        <div class="flex items-center justify-center md:justify-center flex-col gap-2 w-full">
-          <img src="./images/logo.png" class="h-[60px] md:h-[100px] object-contain">
-          <h1 class="cont text-2xl md:text-5xl text-blue opacity-90">Texilix</h1>
+      <div
+        class="flex items-center justify-start md:justify-between flex-col gap-5 md:gap-0 md:flex-row max-w-[1500px] mx-auto w-[90%]">
+        <div class="w-full">
+          <div class="flex items-center justify-center md:justify-center flex-col md:flex-row gap-2 w-full">
+            <img src="./images/logo.png" class="h-[60px] md:h-[100px] object-contain">
+            <h1 class="cont text-2xl md:text-5xl opacity-90">Texilix</h1>
+          </div>
+          <p class="cont text-center text-[8px] md:text-[12px] mt-5">Texilix ©2023. All rights reserved.</p>
         </div>
         <div class="flex-center flex-col w-full">
           <div class="flex items-center justify-center w-full gap-7">
-            <img src="./images/redis.webp" alt="redis" class="w-8 object-contain">
-            <img src="./images/telegram.webp" alt="telegram" class="w-6 object-contain">
-            <img src="./images/youtube.png" alt="youtube" class="w-6 object-contain">
-            <img src="./images/twitter.png" alt="twitter" class="w-6 object-contain">
-            <img src="./images/medium.png" alt="medium" class="w-6 object-contain bg-white circle">
+            <img src="./images/Reddit.png" alt="redis" class="w-8 object-contain">
+            <img src="./images/Telegram.png" alt="telegram" class="w-8 object-contain">
+            <img src="./images/youtube.png" alt="youtube" class="w-8 object-contain">
+            <img src="./images/twitter.png" alt="twitter" class="w-8 object-contain">
+            <img src="./images/Mediume.png" alt="medium" class="w-8 object-contain">
           </div>
-          <div class="flex items-center justify-center w-full mt-5 gap-10">
+          <div class="flex items-center justify-center w-fulls mt-5 gap-10 ml-5 md:ml-0 md:gap-10">
             <!-- LINE 1 -->
-            <div class="flex items-center md:justify-right nunito gap-2 w-full flex-col text-center md:text-right">
+            <div class="flex items-center md:justify-right nunito gap-2 w-fulls flex-col text-left md:text-right">
               <a href="#" class="link w-full text-sm opacity-80">Audits</a>
               <a href="#" class="link w-full text-sm opacity-80">Buy $TEX</a>
               <a href="#" class="link w-full text-sm opacity-80">Disclaimer</a>
@@ -180,7 +239,7 @@
               <a href="#" class="link w-full text-sm opacity-80">FAQ for Texilix</a>
             </div>
             <!-- LINE 2 -->
-            <div class="flex items-center md:justify-left nunito gap-2 w-full flex-col text-center md:text-left">
+            <div class="flex items-center md:justify-left nunito gap-2 w-fulls flex-col text-left">
               <a href="#" class="link w-full text-sm opacity-80">Stake $TEX</a>
               <a href="#" class="link w-full text-sm opacity-80">TexPad</a>
               <a href="#" class="link w-full text-sm opacity-80">Privacy Policy</a>
@@ -190,7 +249,11 @@
           </div>
         </div>
       </div>
-      <p class="cont text-center text-[8px] md:text-[12px] mt-14 md:mt-20">Texilix ©2023. All rights reserved.</p>
+      <!-- <p class="cont text-center md:hidden text-[8px] md:text-[12px] mt-14 md:mt-20">Texilix ©2023. All rights reserved.</p> -->
     </footer>
+  </div>
+
+  <script src="app.js"></script>
 </body>
+
 </html>
