@@ -31,13 +31,13 @@
 <body>
   <!-- LOADER -->
   <div id="loading-animation" class="flex-center" style="width: 100%; height: 100vh; overflow: hidden;">
-    <img src="./images/Loader.gif" class="h-[200px] object-contain" style="object-fit: contain; width: 200px;">
+    <img src="./images/Loader.gif" class="h-[90px] object-contain" style="object-fit: contain; width: 200px;">
   </div>
 
   <div id="page-content" class="body cookie-modal relative" style="display: none;">
     <div class="modal"></div>
     <!-- COOKIES -->
-    <div class="shadow-lg rounded-xl p-5 turner absolute cookie-cont cookie-turner">
+    <div class="shadow-lg rounded-xl p-5 turner absolute cookie-cont cookie-turner md:max-h-[650px] max-h-[550px]">
       <div class="turn-child nunito flex-center flex-col gap-5 m-5">
         <img src="./images/logo.png" alt="texilix-logo" class="h-[100px] md:h-[150px] object-contain">
         <h1 class="text-4xl">Cookies Notice</h1>
@@ -45,10 +45,10 @@
           website.</p>
         <p class="text-md text-center opacity-70">
           By continuing to view this website, you agree to our
-          <a href="#" class="blue-text">Terms of Use</a>, and
-          <a href="#" class="blue-text">Privacy Policy.</a>
+          <a href="https://doc.texilix.com/legal/terms-of-use" class="blue-text">Terms of Use</a>, and
+          <a href="https://doc.texilix.com/legal/privacy-policy" class="blue-text">Privacy Policy.</a>
         </p>
-        <button class="px-10 py-4 blue-grad rounded-xl cont text-xl md:mt-20 cookie-btn">Accept</button>
+        <button class="px-10 py-4 blue-grad rounded-xl cont text-xl mt-5 md:mt-20 cookie-btn">Accept</button>
       </div>
     </div>
     <!-- NAV SECTION -->
@@ -194,7 +194,11 @@
     </section>
     <!-- PARTNERS/BACKERS -->
     <section class="md:mt-40 mb-10 md:mb-20 md:py-20 backers" style="min-height: auto;">
-      <h1 class="cont text-[1.8em] md:text-4xl blue-text text-center">Partners/Backers</h1>
+      <h1 class="cont text-[2.2em] md:text-4xl blue-text text-center flex-center flex-col md:flex-row">
+        <span>Partners/</span>
+        <span>Backers</span>
+      </h1>
+      <p class="monts text-xs mx-5 md:text-lg md:mt-5 text-center text-gray-300">At Texilix, we are fortunate to have an impressive network of partners and backers<br>supporting our innovative endeavors.</p>
       <div class="flex items-center justify-around flex-wrap mt-10 max-w-[1100px] w-[95%] mx-auto">
         <img data-aos="zoom-out" data-aos-duration="1500" src="./images/Render.png" alt="render"
           class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
@@ -211,15 +215,12 @@
       </div>
     </section>
     <!-- FOOTERS -->
-    <footer class="md:pt-32 sm:pb-10 pb-20">
+    <footer class="md:pt-32 mt-10 sm:pb-10 pb-20">
       <div
-        class="flex items-center justify-start md:justify-between flex-col gap-5 md:gap-0 md:flex-row max-w-[1500px] mx-auto w-[90%]">
-        <div class="w-full">
-          <div class="flex items-center justify-center md:justify-center flex-col md:flex-row gap-2 w-full">
-            <img src="./images/logo.png" class="h-[60px] md:h-[100px] object-contain">
-            <h1 class="cont text-2xl md:text-5xl opacity-90">Texilix</h1>
-          </div>
-          <p class="cont text-center text-[8px] md:text-[12px] mt-5">Texilix ©2023. All rights reserved.</p>
+        class="flex items-center justify-start md:justify-between flex-col gap-10 py-16 md:py-10 md:gap-0 md:flex-row max-w-[1500px] mx-auto w-[90%]">
+        <div class="w-full flex-center flex-col">
+          <img src="./images/white-logo.png" class="w-[50%] md:w-[200px] object-contain">
+          <p class="cont text-center text-[12px] mt-5 hidden md:block">Texilix ©2023. All rights reserved.</p>
         </div>
         <div class="flex-center flex-col w-full">
           <div class="flex items-center justify-center w-full gap-7">
@@ -229,7 +230,7 @@
             <img src="./images/twitter.png" alt="twitter" class="w-8 object-contain">
             <img src="./images/Mediume.png" alt="medium" class="w-8 object-contain">
           </div>
-          <div class="flex items-center justify-center w-fulls mt-5 gap-10 ml-5 md:ml-0 md:gap-10">
+          <div class="flex items-center justify-center mt-5 gap-20 md:gap-10">
             <!-- LINE 1 -->
             <div class="flex items-center md:justify-right nunito gap-2 w-fulls flex-col text-left md:text-right">
               <a href="#" class="link w-full text-sm opacity-80">Audits</a>
@@ -249,7 +250,7 @@
           </div>
         </div>
       </div>
-      <!-- <p class="cont text-center md:hidden text-[8px] md:text-[12px] mt-14 md:mt-20">Texilix ©2023. All rights reserved.</p> -->
+      <p class="cont text-center md:hidden text-[8px] mt-14">Texilix ©2023. All rights reserved.</p>
     </footer>
   </div>
 

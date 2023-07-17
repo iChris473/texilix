@@ -14,8 +14,17 @@ window.addEventListener('load', function() {
 const cookieBtn = document.querySelector('.cookie-btn');
 const modal = document.querySelector('.modal');
 
-cookieBtn.addEventListener('click', () => {
+const closeCookieModal = () => {
     modal.style.display = 'none';
     document.querySelector('.body').classList.remove('cookie-modal');
     document.querySelector('.cookie-cont').style.display = 'none';
-})
+    window.localStorage.setItem('cookie', 'true');
+}
+
+cookieBtn.addEventListener('click', closeCookieModal);
+
+const cookie = window.localStorage.getItem('cookie');
+
+if(cookie){
+    closeCookieModal();
+}

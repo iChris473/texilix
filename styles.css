@@ -188,7 +188,7 @@ body{
     transform: translate(-50%, -50%);
     opacity: 1;
     z-index: 9999;
-    height: 65vh;
+    height: 95vh;
     width: 85vw;
     max-width: 500px;
 }
