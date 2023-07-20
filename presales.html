@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texilix</title>
+    <meta name="description" content="The Ultimate Toolkit for all Defi Investors">
+    <meta property="og:image" content="https://www.texilix.com/images/Thumbnail.jpg">
+    <link rel="icon" href="./images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Nunito:wght@800&family=Poppins:wght@500&display=swap"
+      rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: '#01f6fa'
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- LOADER -->
+  <div id="loading-animation" class="flex-center" style="width: 100%; height: 100vh; overflow: hidden;">
+    <img src="./images/Loader.gif" class="h-[90px] object-contain" style="object-fit: contain; width: 200px;">
+  </div>
+
+  <div id="page-content" class="body cookie-modal relative" style="display: none;">
+    <div class="modal"></div>
+    <!-- COOKIES -->
+    <div class="shadow-lg rounded-xl p-5 turner absolute cookie-cont cookie-turner md:max-h-[650px] max-h-[550px]">
+      <div class="turn-child nunito flex-center flex-col gap-5 m-5">
+        <img src="./images/logo.png" alt="texilix-logo" class="h-[100px] md:h-[150px] object-contain">
+        <h1 class="text-4xl">Cookies Notice</h1>
+        <p class="text-center opacity-70">This website makes use of cookies to improve your experience within our
+          website.</p>
+        <p class="text-md text-center opacity-70">
+          By continuing to view this website, you agree to our
+          <a href="https://doc.texilix.com/legal/terms-of-use" class="blue-text">Terms of Use</a>, and
+          <a href="https://doc.texilix.com/legal/privacy-policy" class="blue-text">Privacy Policy.</a>
+        </p>
+        <button class="px-10 py-4 blue-grad rounded-xl cont text-xl mt-5 md:mt-20 cookie-btn">Accept</button>
+      </div>
+    </div>
+    <!-- NAV SECTION -->
+    <nav class="flex-center px-5 pt-10">
+      <div class="nav flex-between w-[95%] mx-auto max-w-[1100px]">
+        <a href="https://www.texilix.com" class="flex-center gap-2">
+          <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
+          <h1 class="md:text-2xl cont text-sm">Texilix</h1>
+        </a>
+        <div class="flex-center gap-5">
+          <a href="#" class="nunito link hidden sm:block">Buy $TEX</a>
+          <a target="_blank" rel="noopener" href="https://doc.texilix.com"
+            class="nunito link hidden sm:block">Whitepaper</a>
+          <a target="_blank" rel="noopener" href="https://medium.com/@texilix?utm_source=gitbook&utm_medium=iframely"
+            class="nunito link hidden sm:block">Blog</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <section class="mobileNav center">
+      <div>
+        <a href="#" class="cont link text-blue">Home</a>
+        <a href="#" class="cont link text-blue">Buy $TEX</a>
+        <a href="#" class="cont link text-blue">Blog</a>
+      </div>
+    </section>
+    
+    
+    <section class="mt-28 mb-20 max-w-[1300px] w-[95%] mx-auto">
+      <h1 class="nunito text-5xl md:text-7xl blue-text text-left mb-20 ml-5">Live Presales</h1>
+      <div class="flex-center flex-wrap mx-auto presaleDiv gap-5">
+        <!-- PRESALES IS INSERTED HERE BY JAVASCRIPT -->
+
+        <!-- END OF PRESALE TAB -->
+
+        <!-- LOADER TAB -->
+        <div class="flex-center gap-1 loader flex-col">
+          <img src="./images/Texilix.gif" alt="loader" class="h-[300px] object-contain">
+          <p class="blue-text monospace text-sm">Fetching presales...</p>
+        </div>
+      </div>
+
+      <!-- LOAD MORE BUTTON -->
+      <div class="flex-center">
+        <button class="hidden loadMoreBtn cursor-pointer border-grad text-blue px-10 py-4 rounded-full my-10 nunito text-lg">Load More Presales</button>
+      </div>
+    </section>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./preslaes/presale.html.js"></script>
+    <script src="./preslaes/presales.js"></script>
+</body>
+</html>
