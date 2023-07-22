@@ -134,7 +134,7 @@ body{
     height: 10% !important;
 }
 .cookie-turner::after {
-    background: rgb(34, 34, 34);
+    background: #0a0a0c;
 }
 
 .turn-child {
