@@ -26,11 +26,13 @@ const getPresales = async () => {
         nextToken = res.data.nextPageToken;
 
         res.data.pools.map(data => {
-            const div = document.createElement('div');
-            div.className = 
-            "shadow-lg bg-gray-900 p-5 rounded-xl w-full max-w-[400px] flex items-start justify-start flex-col";
-            div.innerHTML = presaleHtml(data);
-            presaleDiv.appendChild(div);
+            if(data?.platform ?.toLowerCase() !== 'novation'){
+                const div = document.createElement('div');
+                div.className = 
+                "shadow-lg bg-gray-900 p-5 rounded-xl w-full max-w-[400px] flex items-start justify-start flex-col";
+                div.innerHTML = presaleHtml(data);
+                presaleDiv.appendChild(div);
+            }
         });
 
     } catch (error) {
