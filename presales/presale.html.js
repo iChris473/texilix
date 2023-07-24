@@ -18,10 +18,10 @@ const presaleHtml = data => (`
     <!-- CURRENCY -->
     <div class="flex flex-col my-5">
       <p class="monospace text-md opacity-80">CURRENCY</p>
-      <h3 class="monts blue-text text-xl">${data?.currency}</h3>
+      <h3 class="nunito blue-text text-xl">${data?.currency}</h3>
     </div>
     <!-- CAPS -->
-    <div class="flex items-start justify-between w-[90%]">
+    <div class="flex items-start justify-between w-[90%] gap-2">
       <div class="nunito">
         <p class="opacity-80 monospace text-lg">SOFT CAP</p>
         <h3 class="text-2xl">${data?.softCap || "N/A"}</h3>
@@ -33,7 +33,14 @@ const presaleHtml = data => (`
     </div>
     <!-- PROJECT LINKS -->
     <div style="position: relative" class="mt-8 mb-3 pb-2">
-        <p class="truncate-text text-sm text-left opacity-80 monts mr-5">${data?.socials?.description}</p>
+        <div class="flex items-center justify-between my-5 w-[90%]">
+          <div>
+            ${data?.audit ? `<a href=${data?.audit} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">Audit</a>` : ""}
+            ${data?.kyc ? `<a href=${data?.kyc} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">KYC</a>` : ""}
+          </div>
+          <p class="text-lg nunito blue-text capitalize">${data?.status}</p>
+        </div>
+        <p class="truncate-text text-sm text-left opacity-80 monts mr-5">${data?.socials?.description || ""}</p>
         <p style="position: absolute" class="!absolue bottom-0 opacity-40 right-5 text-xs">see more...</p>
     </div>
     <div class="flex justify-start">

@@ -5,17 +5,34 @@ const loader = document.querySelector('.loader');
 let nextToken = '';
 let isDataFinished = false;
 let isLoading = true;
+let reloadData = false;
 
-const getPresales = async () => {
+const search = document.querySelector('.search');
+const filter = document.querySelector('.filter');
+const stats = document.querySelector('.status');
+const sort = document.querySelector('.sort');
+
+console.log(search.value, filter.value, stats.value, sort.value);
+
+// SEARCH LINK https://api.presale.world/search-pools_v2?q=PEPE
+// FLITERS KYC & AUDITS = kyc-audit, KYC = kyc, AUDIT = audit, NONE = none
+// STATUS UPCOMING = upcoming, cancelled, live, ended, any
+// SORT = start-time, end-time, recent, recent-update
+
+const getPresales = async (url) => {
 
     if(isDataFinished) return;
+
+    if(reloadData){
+        presaleDiv.innerHTML = '';
+    }
 
     loader.style.display = 'flex';
     loadMoreBtn.style.display = 'none';
 
     try {
-        const res = await axios.get(`https://api.presale.world/list-pools?flt=audit&sts=live&srt=total&pt=${nextToken}`);
-
+        const res = await axios.get(url || `https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
+        console.log(res.data);
         if(!res.data.nextPageToken){
             loadMoreBtn.style.display = 'none';
             isDataFinished = true;
@@ -44,4 +61,37 @@ const getPresales = async () => {
 
 getPresales();
 
-loadMoreBtn.addEventListener('click', getPresales);
+
+loadMoreBtn.addEventListener('click', () => {
+    getPresales();
+});
+
+const searchForm = document.querySelector('.submitForm');
+searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    isDataFinished = false;
+    reloadData = true;
+    nextToken = '';
+    getPresales(`https://api.presale.world/search-pools_v2?q=${search.value}`);
+    reloadData = false;
+});
+
+const reloadDataFunction = () => {
+    nextToken = '';
+    isDataFinished = false;
+    reloadData = true;
+    getPresales()
+    reloadData = false;
+}
+
+stats.addEventListener('change', () => {
+    reloadDataFunction();
+});
+
+filter.addEventListener('change', () => {
+    reloadDataFunction();
+});
+
+sort.addEventListener('change', () => {
+    reloadDataFunction();
+});
