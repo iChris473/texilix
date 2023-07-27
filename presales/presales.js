@@ -1,3 +1,20 @@
+const arrowRight = document.querySelector('.arrowRight');
+const arrowLeft = document.querySelector('.arrowLeft');
+const roadCont = document.querySelector('.hotPresales');
+
+arrowLeft.addEventListener('click', () => {
+    roadCont.scroll({
+        left: roadCont.scrollLeft - 500,
+        behavior: 'smooth'
+    })
+})
+arrowRight.addEventListener('click', () => {
+    roadCont.scroll({
+        left: roadCont.scrollLeft + 500,
+        behavior: 'smooth'
+    })
+})
+
 const presaleDiv = document.querySelector('.presaleDiv');
 const loadMoreBtn = document.querySelector('.loadMoreBtn');
 const loader = document.querySelector('.loader');
@@ -12,8 +29,6 @@ const filter = document.querySelector('.filter');
 const stats = document.querySelector('.status');
 const sort = document.querySelector('.sort');
 
-console.log(search.value, filter.value, stats.value, sort.value);
-
 // SEARCH LINK https://api.presale.world/search-pools_v2?q=PEPE
 // FLITERS KYC & AUDITS = kyc-audit, KYC = kyc, AUDIT = audit, NONE = none
 // STATUS UPCOMING = upcoming, cancelled, live, ended, any
@@ -24,7 +39,7 @@ const getPresales = async (url) => {
     if(isDataFinished) return;
 
     if(reloadData){
-        presaleDiv.innerHTML = '';
+        presaleDiv.innerHTML = "";
     }
 
     loader.style.display = 'flex';
@@ -32,7 +47,6 @@ const getPresales = async (url) => {
 
     try {
         const res = await axios.get(url || `https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
-        console.log(res.data);
         if(!res.data.nextPageToken){
             loadMoreBtn.style.display = 'none';
             isDataFinished = true;
@@ -95,3 +109,39 @@ filter.addEventListener('change', () => {
 sort.addEventListener('change', () => {
     reloadDataFunction();
 });
+
+let hotSalesArray = [];
+
+const getHotSales = async (next = '', length = 10) => {
+    
+    const url = `https://api.presale.world/list-pools?flt=&sts=live&srt=total&pt=${next}`;
+    
+    const res = await axios.get(url);
+    console.log(res.data)
+    
+    if(res?.data?.pools.length < 10){
+        getHotSales(res?.data?.nextPageToken, length - res?.data?.pools.length);
+    }
+
+    return hotSalesArray.concat(res?.data?.pools?.splice(0, length));
+}
+
+async function getHoties(){
+    const hotPresaleDiv = document.querySelector('.hotPresales');
+    const hotPresales = await getHotSales();
+    hotPresales.map(presale => {
+        console.log(presale.tokenName);
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <a href=${presale?.link} class="flex-center flex-col mb-20 relative hotPresaleChild">
+          <img src=${presale?.imageUrl} alt="presale-img" class="h-20 object-contain">
+          <div class="flex flex-center">
+            <h1 class="text-sm text-center monts max-w-[150px]">${presale?.tokenName} <span>(${presale?.tokenSymbol})</span></h1>
+          </div>
+          <p class="absolute top-0 right-0 text-xs md:text-sm bg-red-600 p-1 rounded-full">HOT 🔥</p>
+        </a>
+        `;
+        hotPresaleDiv.append(div);
+    })
+};
+getHoties();
