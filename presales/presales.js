@@ -130,16 +130,14 @@ async function getHoties(){
     const hotPresaleDiv = document.querySelector('.hotPresales');
     const hotPresales = await getHotSales();
     hotPresales.map(presale => {
-        console.log(presale.tokenName);
         const div = document.createElement('div');
+        div.className = "flex-center flex-col mb-20 relative hotPresaleChild";
         div.innerHTML = `
-        <a href=${presale?.link} class="flex-center flex-col mb-20 relative hotPresaleChild">
           <img src=${presale?.imageUrl} alt="presale-img" class="h-20 object-contain">
           <div class="flex flex-center">
             <h1 class="text-sm text-center monts max-w-[150px]">${presale?.tokenName} <span>(${presale?.tokenSymbol})</span></h1>
           </div>
           <p class="absolute top-0 right-0 text-xs md:text-sm bg-red-600 p-1 rounded-full">HOT 🔥</p>
-        </a>
         `;
         hotPresaleDiv.append(div);
     })

@@ -211,7 +211,6 @@ body{
     gap: 15px;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    height: 180px;
 }
 
 .arrows {
@@ -237,7 +236,7 @@ body{
     nav,
     div,
     footer {
-        overflow: hidden !important;
+        overflow-y: hidden !important;
     }
     .mobileNav {
         display: block;
@@ -270,6 +269,9 @@ body{
     }
     .hotPresales {
         grid-auto-columns: 90%;
+    }
+    .arrows {
+        display: none;
     }
 }
 
