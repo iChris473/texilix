@@ -269,6 +269,7 @@ body{
     }
     .hotPresales {
         grid-auto-columns: 90%;
+        gap: 25px;
     }
     .arrows {
         display: none;
