@@ -1,8 +1,8 @@
-const presaleHtml = data => (`
+const presaleHtml = (data) => (`
 
 <div class="flex items-center justify-start gap-3">
   <div class="rounded-lg flex-center">
-    <img src=${data?.imageUrl} alt="project-icon" class="w-[80px] h-[100px] object-contain">
+    <img src=${data?.imageUrl || data?.icon_url} alt="project-icon" class="w-[80px] h-[100px] object-contain">
   </div>
   <div>
     <h1 class="cont text-lg">${data?.tokenName}</h1>
