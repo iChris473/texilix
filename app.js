@@ -11,20 +11,20 @@ window.addEventListener('load', function() {
     AOS.init();
 });
 
-const cookieBtn = document.querySelector('.cookie-btn');
-const modal = document.querySelector('.modal');
+// const cookieBtn = document.querySelector('.cookie-btn');
+// const modal = document.querySelector('.modal');
 
-const closeCookieModal = () => {
-    modal.style.display = 'none';
-    document.querySelector('.body').classList.remove('cookie-modal');
-    document.querySelector('.cookie-cont').style.display = 'none';
-    window.localStorage.setItem('cookie', 'true');
-}
+// const closeCookieModal = () => {
+//     modal.style.display = 'none';
+//     document.querySelector('.body').classList.remove('cookie-modal');
+//     document.querySelector('.cookie-cont').style.display = 'none';
+//     window.localStorage.setItem('cookie', 'true');
+// }
 
-cookieBtn.addEventListener('click', closeCookieModal);
+// cookieBtn.addEventListener('click', closeCookieModal);
 
-const cookie = window.localStorage.getItem('cookie');
+// const cookie = window.localStorage.getItem('cookie');
 
-if(cookie){
-    closeCookieModal();
-}
+// if(cookie){
+//     closeCookieModal();
+// }

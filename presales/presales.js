@@ -144,3 +144,14 @@ async function getHoties(){
     })
 };
 getHoties();
+
+/*
+
+---------- UNCX PRESALES ---------
+ - STAGES PROPERTY
+    O: UPCOMING
+    1: LIVE
+    2: SUCCESS
+    3: FAILED
+
+*/
