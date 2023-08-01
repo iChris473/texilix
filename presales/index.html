@@ -36,20 +36,31 @@
 
   <div id="page-content" class="body relative" style="display: none;">
     <!-- NAV SECTION -->
-    <nav class="flex-center px-5 pt-10">
+    <nav class="flex-center flex-col">
+      <div class="flex-center flex-col md:flex-row purple-grad text-black p-2 w-full gap-3 mb-10 md:gap-32">
+        <a href="https://doc.texilix.com/texpad/texpad-coming-soon" class="monts flex-center gap-3 text-md md:text-lg">
+          <p class="">TexPad - Coming Soon</p>
+          <p class="bg-white md:px-5 p-1 rounded-lg flex">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>             
+          </p>
+        </a>
+        <div class="nunito flex-center gap-3 text-xl hidden">
+          <p>$TEX first staking round</p>
+        </div>
+      </div>
       <div class="nav flex-between w-[95%] mx-auto max-w-[1300px]">
         <a href="https://www.texilix.com" class="flex-center gap-2">
           <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
           <h1 class="md:text-2xl cont text-sm">Texilix</h1>
         </a>
         <div class="flex-center gap-5">
-          <a href="https://www.texilix.com" class="bg-blue text-black px-4 py-1 rounded-lg nunito link md:hidden">Home</a>
-          <a href="https://www.texilix.com" class="nunito link hidden sm:block">Home</a>
-          <a href="#" class="nunito link hidden sm:block">Buy $TEX</a>
-          <a target="_blank" rel="noopener" href="https://doc.texilix.com"
-            class="nunito link hidden sm:block">Whitepaper</a>
-          <a target="_blank" rel="noopener" href="https://medium.com/@texilix?utm_source=gitbook&utm_medium=iframely"
-            class="nunito link hidden sm:block">Blog</a>
+          <a href="#" class="monts link hidden sm:block">Buy $TEX</a>
+          <a target="_blank" rel="noopener" href="https://doc.texilix.com" class="monts link hidden sm:block">Whitepaper</a>
+          <a href="https://www.texilix.com/" class="blue-grad nav-btn px-5 py-3 rounded-lg blue-grad cont link-btn turner">
+              <p class="turn-child text-sm sm:text-md">Home</p>
+          </a>
         </div>
       </div>
     </nav>

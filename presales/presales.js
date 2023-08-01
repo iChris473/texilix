@@ -148,6 +148,10 @@ getHoties();
 /*
 
 ---------- UNCX PRESALES ---------
+ - URLS
+    - PANCAKESWAP V2: https://api-pcakev2.unicrypt.network/api/v1/presales/search
+    - UNISWAP V2: https://api-univ2-accounts.unicrypt.network/api/v1/presales/search
+
  - STAGES PROPERTY
     O: UPCOMING
     1: LIVE

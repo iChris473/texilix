@@ -71,6 +71,11 @@ body{
     background-image: linear-gradient(63deg, #0182fa, #01f6fa);
     color: black;
 }
+.purple-grad {
+    background-color: #01f6fa;
+    background-image: linear-gradient(63deg, #01f6fa, #0182fa);
+    color: black;
+}
 .border-grad {
     border: 1px solid #01f6fa;
     border-color: linear-gradient(63deg, #016dfa, #01f6fa);
