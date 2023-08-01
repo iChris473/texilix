@@ -40,10 +40,10 @@
       <div class="flex-center flex-col md:flex-row purple-grad text-black p-2 w-full gap-3 md:gap-32">
         <a href="https://doc.texilix.com/texpad/texpad-coming-soon" class="monts flex-center gap-3 text-md md:text-lg">
           <p class="">TexPad - Coming Soon</p>
-          <p class="bg-white md:px-5 p-1 rounded-lg flex">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <p class="bg-white px-2 p-1 rounded-lg flex">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 md:h-5 md:w-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>             
+            </svg>                   
           </p>
         </a>
         <div class="nunito flex-center gap-3 text-xl hidden">
@@ -66,7 +66,8 @@
         </div>
       </div>
     </nav>
-    
+
+    <!-- HOT PRESALES -->
     <section class="mt-16 mb-20 max-w-[1300px] w-[95%] mx-auto">
       <div class="hotPresales m-3">
         <!-- APPEND HOT PRESALES HERE WITH JS -->
@@ -78,11 +79,14 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrowRight">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
           </svg>
-        </div>
+       </div>
+    </section>
+    
+    <section class="mt-16 mb-20 max-w-[1800px] w-[95%] mx-auto">
       <h1 class="cont text-4xl md:text-7xl text-white text-center ml-5">Presales</h1>
       <!-- FILTERS -->
       <div class="mb-10 md:mb-20 mt-5 flex-center gap-5 text-sm md:text-lg md:gap-10 nunito text-gray-300 flex-wrap">
-        <form class="flex-center gap-1 w-[90%] p-2 rounded-lg border-grad md:w-[350px] submitForm">
+        <form class="flex-center gap-1 w-[90%] p-2 rounded-lg border-grad md:w-[300px] submitForm">
           <input type="text" placeholder="Search for presales" class="search flex-1 bg-transparent outline-none">
           <button type="button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer w-7 h-7 -rotate-45 text-blue">
@@ -90,6 +94,14 @@
             </svg>        
           </button>
         </form>
+        <div class="hidden sflex items-center justify-between w-[90%] md:w-auto gap-2">
+          <p>Launchpad:</p>
+          <select class="filter flex-1 w-full border-grad px-5 py-2 rounded-lg outline-none bg-transparent">
+            <option value="presale_gempad">Presale & Gempad</option>
+            <option value="uncx">UNCX</option>
+            <option value="dxsale">DXSale</option>
+          </select>
+        </div>
         <div class="flex items-center justify-between w-[90%] md:w-auto gap-2">
           <p>Filter:</p>
           <select class="filter flex-1 w-full border-grad px-5 py-2 rounded-lg outline-none bg-transparent">
