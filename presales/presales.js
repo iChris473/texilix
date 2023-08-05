@@ -37,6 +37,9 @@ const sortP = document.querySelector('.sortP');
 // STATUS UPCOMING = upcoming, cancelled, live, ended, any
 // SORT = start-time, end-time, recent, recent-update
 
+let uncx_url = 'https://api-pcakev2.unicrypt.network/api/v1/presales/search';
+let uncxPanswap = true;
+
 const getPresalesMethod = async (url, method, body, currency) => {
 
     if(isDataFinished) return;
@@ -66,8 +69,14 @@ const getPresalesMethod = async (url, method, body, currency) => {
                 loadMoreBtn.style.display = 'block';
                 nextToken ? nextToken++ : (nextToken = 1);
             } else {
-                loadMoreBtn.style.display = 'none';
-                nextToken ? nextToken++ : (nextToken = 1);
+                if(!uncxPanswap){
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                    uncxPanswap = false;
+                    uncx_url = 'https://api-univ2-accounts.unicrypt.network/api/v1/presales/search';
+                    nextToken = 0;
+                }
             }
         } else {
             if(!res.data.nextPageToken && !res.data?.count){
@@ -137,10 +146,9 @@ const getPresales = () => {
       rows_per_page: 20,
       stage: parseInt(stats.value)
     }
-    if(launchpad.value == 'uncx_pan'){
-        getPresalesMethod('https://api-pcakev2.unicrypt.network/api/v1/presales/search', 'post', uncxBody, 'BNB');
-    } else if(launchpad.value == 'uncx_uni'){
-        getPresalesMethod('https://api-univ2-accounts.unicrypt.network/api/v1/presales/search', 'post', uncxBody, 'ETH');
+    if(launchpad.value == 'uncx'){
+        getPresalesMethod(uncx_url, 'post', uncxBody, uncxPanswap ? 'BNB' : 'ETH');
+        // getPresalesMethod('https://api-univ2-accounts.unicrypt.network/api/v1/presales/search', 'post', uncxBody, 'ETH');
     } else {
         getPresalesMethod();
     }
@@ -164,6 +172,7 @@ searchForm.addEventListener('submit', e => {
 
 const reloadDataFunction = () => {
     nextToken = '';
+    uncxPanswap = true;
     isDataFinished = false;
     reloadData = true;
     getPresales();
