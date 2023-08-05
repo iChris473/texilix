@@ -9,6 +9,16 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -209,15 +219,6 @@ body{
     max-width: 500px;
 }
 
-.hotPresales {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 11.89%;
-    gap: 15px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-}
-
 .arrows {
     display: flex;
     align-items: center;
@@ -232,6 +233,62 @@ body{
     stroke: #01f6fa;
     cursor: pointer;
 }
+
+.hotcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 11rem;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .scroll-parent {
+    position: relative;
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  .scroll-element {
+    width: 200vw;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .scroll-element div {
+    width: 100%;
+  }
+  
+  .primary {
+    animation: primary 10s linear infinite;
+  }
+  
+  .secondary {
+    animation: secondary 10s linear infinite;
+  }
+  
+  @keyframes primary {
+    from {
+      left: 0%;
+    }
+    to {
+      left: -100%;
+    }
+  }
+  
+  @keyframes secondary {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0%;
+    }
+  }
 
 
 /* MEDIA QUERIES */
@@ -279,6 +336,17 @@ body{
     .arrows {
         display: none;
     }
+    .scroll-element {
+        width: 500vw;
+    }
+    @keyframes primary {
+        from {
+          left: 0%;
+        }
+        to {
+          left: -250%;
+        }
+      }
 }
 
 @media (max-width: 1170px) {

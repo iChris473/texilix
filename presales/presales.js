@@ -1,20 +1,20 @@
-const arrowRight = document.querySelector('.arrowRight');
-const arrowLeft = document.querySelector('.arrowLeft');
+// const arrowRight = document.querySelector('.arrowRight');
+// const arrowLeft = document.querySelector('.arrowLeft');
 const roadCont = document.querySelector('.hotPresales');
 const launchpad = document.querySelector('.launchpads');
 
-arrowLeft.addEventListener('click', () => {
-    roadCont.scroll({
-        left: roadCont.scrollLeft - 500,
-        behavior: 'smooth'
-    })
-})
-arrowRight.addEventListener('click', () => {
-    roadCont.scroll({
-        left: roadCont.scrollLeft + 500,
-        behavior: 'smooth'
-    })
-})
+// arrowLeft.addEventListener('click', () => {
+//     roadCont.scroll({
+//         left: roadCont.scrollLeft - 500,
+//         behavior: 'smooth'
+//     })
+// })
+// arrowRight.addEventListener('click', () => {
+//     roadCont.scroll({
+//         left: roadCont.scrollLeft + 500,
+//         behavior: 'smooth'
+//     })
+// })
 
 const presaleDiv = document.querySelector('.presaleDiv');
 const loadMoreBtn = document.querySelector('.loadMoreBtn');
@@ -212,20 +212,35 @@ const getHotSales = async (next = '', length = 10) => {
 }
 
 async function getHoties(){
-    const hotPresaleDiv = document.querySelector('.hotPresales');
-    const hotPresales = await getHotSales();
+    const primary = document.querySelector('.primary');
+    // const secondary = document.querySelector('.secondary');
+    let hotPresales = await getHotSales();
+    console.log(hotPresales)
     hotPresales.map(presale => {
         const div = document.createElement('div');
         div.innerHTML = `
         <a href=${presale?.link} class="flex-center flex-col mb-20 relative hotPresaleChild">
-          <img src=${presale?.imageUrl} alt="presale-img" class="w-20 object-cover circle">
+          <img src=${presale?.imageUrl || "https://app.uncx.network/img/no-icon.0e5c6c82.png"} alt="presale-img" class="w-20 object-cover circle">
           <div class="flex flex-center">
             <h1 class="text-sm text-center monts max-w-[150px]">${presale?.tokenSymbol}</h1>
           </div>
           <p class="absolute top-0 right-0 text-[8px] md:text-sm bg-red-600 p-1 rounded-full">HOT 🔥</p>
         </a>
         `;
-        hotPresaleDiv.append(div);
+        primary.append(div);
+    })
+    hotPresales.map(presale => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <a href=${presale?.link} class="flex-center flex-col mb-20 relative hotPresaleChild">
+          <img src=${presale?.imageUrl || "https://app.uncx.network/img/no-icon.0e5c6c82.png"} alt="presale-img" class="w-20 object-cover circle">
+          <div class="flex flex-center">
+            <h1 class="text-sm text-center monts max-w-[150px]">${presale?.tokenSymbol}</h1>
+          </div>
+          <p class="absolute top-0 right-0 text-[8px] md:text-sm bg-red-600 p-1 rounded-full">HOT 🔥</p>
+        </a>
+        `;
+        primary.append(div);
     })
 };
 getHoties();
