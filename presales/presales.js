@@ -58,11 +58,8 @@ const getPresalesMethod = async (url, method, body, currency) => {
         if(body){
             res = await axios[method](url, body);
         } else {
-            console.log(`https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`)
             res = await axios.get(`https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
         }
-
-        console.log(res.data)
 
         if(res.data?.count){
             if(Math.floor(res.data?.count / 20) > (nextToken || 0)) {
