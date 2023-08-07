@@ -134,6 +134,12 @@ body{
 .border-grad::after {
     background: #0a0a0c;
 }
+.black-bg {
+    background: #131318;
+}
+.black-bg::after {
+    background: #1e1e26;
+}
 .turner-vertical::before {
     width: 30% !important;
     height: 10% !important;
@@ -252,3 +258,19 @@ body{
         z-index: 1;
     }
 }
+
+/* Initial hidden state */
+.anim-hidden {
+    display: none;
+    /* opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden; */
+  }
+  
+  /* Animation for when the element is displayed */
+  .animated {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
