@@ -110,3 +110,22 @@ const displayFaq = faq => {
             break;
     }
 }
+
+const mobileNav = document.querySelector('.mobileNav');
+const mobileX = document.querySelector('.mobileX')
+const mobileBar = document.querySelector('.mobileBar')
+
+mobileBar.addEventListener('click', () => {
+    mobileNav.style.display = 'block';
+    modal.style.display = 'block';
+})
+
+mobileX.addEventListener('click', () => {
+    mobileNav.style.display = 'none';
+    modal.style.display = 'none';
+})
+
+modal.addEventListener('click', () => {
+    mobileNav.style.display = 'none';
+    modal.style.display = 'none';
+})
