@@ -118,14 +118,25 @@ const mobileBar = document.querySelector('.mobileBar')
 mobileBar.addEventListener('click', () => {
     mobileNav.style.display = 'block';
     modal.style.display = 'block';
+    mobileNav.style.opacity = 0;
+    void mobileNav.offsetWidth;
+    mobileNav.style.transition = "opacity 1s";
+    mobileNav.style.opacity = 1;
 })
 
-mobileX.addEventListener('click', () => {
-    mobileNav.style.display = 'none';
+const removeMobileNav = () => {
     modal.style.display = 'none';
-})
+    mobileNav.style.opacity = 0;
 
-modal.addEventListener('click', () => {
-    mobileNav.style.display = 'none';
-    modal.style.display = 'none';
-})
+    myElement.addEventListener("transitionend", () => {
+      mobileNav.style.display = "none";
+        modal.style.display = 'none';
+      mobileNav.style.opacity = 1; // Reset opacity
+    });
+  
+    mobileNav.style.transition = "opacity 0.5s";
+}
+
+mobileX.addEventListener('click', () => { removeMobileNav() });
+
+modal.addEventListener('click', () => { removeMobileNav() });

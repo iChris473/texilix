@@ -168,6 +168,7 @@ body{
     left: 0;
     height: 1000vh;
     z-index: 9999999 !important;
+    transition-duration: 2000ms;
 }
 
 .blue-text {
