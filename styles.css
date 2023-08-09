@@ -139,6 +139,7 @@ body{
 }
 .black-bg::after {
     background: #1e1e26;
+    background-color: rgb(17 24 39);
 }
 .turner-vertical::before {
     width: 30% !important;
