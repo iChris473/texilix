@@ -66,23 +66,24 @@
           <p>$TEX first staking round</p>
         </div>
       </div>
-      <div class="flex-center px-5 pt-10 w-full">
-        <div class="nav flex-between w-[95%] mx-auto max-w-[1200px]">
+      <div class="flex-center px-1 pt-10 w-full">
+        <div class="nav flex-between w-[98%] mx-auto max-w-[1200px]">
           <div class="flex-center gap-2">
             <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
             <h1 class="md:text-2xl cont text-sm">Texilix</h1>
           </div>
           <div class="hidden items-center justify-center gap-5 text-xs lg:flex">
             <a href="#" class="monts link">Buy $TEX</a>
+            <a onclick="scrollDown('.npartners', '#partners')" class="npartners monts link cursor-pointer">Partners</a>
+            <a onclick="scrollDown('.nteam', '#team')" class="nteam cursor-pointer monts link">Team</a>
+            <a onclick="scrollDown('.ncontact', '#footer')" class="ncontact cursor-pointer monts link">Contact</a>
+            <a onclick="scrollDown('.nfaq', '#faq')" class="nfaq cursor-pointer monts link">Faq</a>
             <a target="_blank" rel="noopener" href="https://doc.texilix.com" class="monts link">Document</a>
-            <a target="_blank" rel="noopener" href="#mobile_app" class="monts link">Texilix App</a>
+            <a rel="noopener" href="#mobile_app" class="monts link">Texilix App</a>
             <a target="_blank" rel="noopener" href="https://doc.texilix.com/usdtex-token/roadmap" class="monts link">Roadmap</a>
             <a target="_blank" rel="noopener" href="https://doc.texilix.com/usdtex-token/tokenomics" class="monts link">Tokenomics</a>
             <a target="_blank" rel="noopener" href="https://doc.texilix.com/regulatory-and-risk-compliance/audits" class="monts link">Audits</a>
-            <a target="_blank" rel="noopener" href="#partners" class="monts link">Partners</a>
-            <a target="_blank" rel="noopener" href="#team" class="monts link">Team</a>
-            <a target="_blank" rel="noopener" href="#footer" class="monts link">Contact</a>
-            <a target="_blank" rel="noopener" href="#faq" class="monts link">Faq</a> 
+            <img src="./images/xicon.svg" alt="x-icon" class="mobileX h-10 cursor-pointer absolute top-5 right-0 animate animate-pulse">
           </div>
           <div class="flex-center gap-2">
             <a href="https://app.texilix.com/" class="blue-grad nav-btn px-2 md:px-5 py-3 rounded-lg blue-grad cont link-btn turner">
@@ -98,15 +99,15 @@
     <section class="mobileNav bg-gray-900 hidden">
       <div class="!items-start p-10 !justify-start gap-5 text-lg flex flex-col relative">
         <a href="#" class="monts link">Buy $TEX</a>
+        <a onclick="scrollDown('.npartners', '#partners')" class="npartners monts link cursor-pointer">Partners</a>
+        <a onclick="scrollDown('.nteam', '#team')" class="nteam cursor-pointer monts link">Team</a>
+        <a onclick="scrollDown('.ncontact', '#footer')" class="ncontact cursor-pointer monts link">Contact</a>
+        <a onclick="scrollDown('.nfaq', '#faq')" class="nfaq cursor-pointer monts link">Faq</a>
         <a target="_blank" rel="noopener" href="https://doc.texilix.com" class="monts link">Document</a>
-        <a target="_blank" rel="noopener" href="#mobile_app" class="monts link">Texilix App</a>
+        <a rel="noopener" href="#mobile_app" class="monts link">Texilix App</a>
         <a target="_blank" rel="noopener" href="https://doc.texilix.com/usdtex-token/roadmap" class="monts link">Roadmap</a>
         <a target="_blank" rel="noopener" href="https://doc.texilix.com/usdtex-token/tokenomics" class="monts link">Tokenomics</a>
         <a target="_blank" rel="noopener" href="https://doc.texilix.com/regulatory-and-risk-compliance/audits" class="monts link">Audits</a>
-        <a target="_blank" rel="noopener" href="#partners" class="monts link">Partners</a>
-        <a target="_blank" rel="noopener" href="#team" class="monts link">Team</a>
-        <a target="_blank" rel="noopener" href="#footer" class="monts link">Contact</a>
-        <a target="_blank" rel="noopener" href="#faq" class="monts link">Faq</a>
         <img src="./images/xicon.svg" alt="x-icon" class="mobileX h-10 cursor-pointer absolute top-5 right-0 animate animate-pulse">
       </div>
     </section>
@@ -244,7 +245,7 @@
     </section>
 
     <!-- PARTNERS/BACKERS -->
-    <section id="partners" class="md:mt-40 md:py-20 backers" style="min-height: auto;">
+    <section id="partners" class="md:mt-40 md:py-20 pb-5 backers" style="min-height: auto;">
       <h1 class="cont text-[2.2em] md:text-4xl blue-text text-center flex-center flex-col md:flex-row">
         <span>Partners/</span>
         <span>Backers</span>
@@ -263,6 +264,73 @@
           class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
         <img data-aos="fade-up" data-aos-duration="1500" src="./images/DEXVIEW.png" alt="dexview"
           class="h-[50px] sm:h-[70px] md:h-[120px] opacity-70 m-2 object-contain">
+      </div>
+    </section>
+
+    <!-- CORE TEAM -->
+    <section id="team" class="md:mt-10s md:py-20 py-10 max-w-[1300px] w-[95%] mx-auto">
+      <h1 class="cont text-[1.9em] md:text-4xl blue-text text-center flex-center flex-col md:flex-row mb-10">Core Team</h1>
+      <div class="flex items-start m-5 md:items-center md:justify-center flex-wrap gap-5 w-full">
+        <div class="flex gap-2 bg-gray-800 w-[300px] overflow-hidden rounded-lg">
+          <img src="./images/Mark.jpg" alt="mark" class="h-[150px] oject-cover rounded-lg">
+          <div class="flex items-start justify-start p-2 flex-col gap-2">
+            <h1 class="text-2xl nunito">Mark</h1>
+            <p class="opacity-90 text-xs">CEO/Founder of Texilix</p>
+            <div class="flex-center gap-2 opacity-90 mt-5">
+              <a href="#">
+                <img src="./images/Telegram.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+              <a href="#">
+                <img src="./images/twitter.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-2 bg-gray-800 w-[300px] overflow-hidden rounded-lg">
+          <img src="./images/Mark.jpg" alt="cmo" class="h-[150px] oject-cover rounded-lg">
+          <div class="flex items-start justify-start p-2 flex-col gap-2">
+            <h1 class="text-2xl nunito">Texilix </h1>
+            <p class="opacity-90 text-xs">Chief Marketing Officer </p>
+            <div class="flex-center gap-2 opacity-90 mt-5 mt-5">
+              <a href="#">
+                <img src="./images/Telegram.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+              <a href="#">
+                <img src="./images/twitter.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-2 bg-gray-800 w-[300px] overflow-hidden rounded-lg">
+          <img src="./images/Mark.jpg" alt="mark" class="h-[150px] oject-cover rounded-lg">
+          <div class="flex items-start justify-start p-2 flex-col gap-2">
+            <h1 class="text-2xl nunito">COO</h1>
+            <p class="opacity-90 text-xs">Chief Operating Officer</p>
+            <div class="flex-center gap-2 opacity-90 mt-5">
+              <a href="#">
+                <img src="./images/Telegram.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+              <a href="#">
+                <img src="./images/twitter.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-2 bg-gray-800 w-[300px] overflow-hidden rounded-lg">
+          <img src="./images/Mark.jpg" alt="mark" class="h-[150px] oject-cover rounded-lg">
+          <div class="flex items-start justify-start p-2 flex-col gap-2">
+            <h1 class="text-2xl nunito">Terry Junior</h1>
+            <p class="opacity-90 text-xs">Texilix Adviser</p>
+            <div class="flex-center gap-2 opacity-90 mt-3">
+              <a href="#">
+                <img src="./images/Telegram.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+              <a href="#">
+                <img src="./images/twitter.png" alt="telegram" class="h-8 object-contain link border-grad circle p-[1px]">
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -328,7 +396,7 @@
     </section>
 
     <!-- FOOTERS -->
-    <footer class="mt-5">
+    <footer id="footer" class="mt-5">
       <div class="flex items-center justify-start lg:justify-center flex-col gap-10 py-20 lg:py-10 lg:gap-0 lg:flex-row max-w-[1300px] mx-auto w-[95%] border-t border-gray-800">
   
         <!-- FIRST SECTION -->
@@ -425,7 +493,7 @@
   </div>
 
   <!-- SCROLL TO TOP -->
-  <svg onclick="scrollToTop()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="scrollTop w-8 h-8 md:h-10 md:w-10 text-blue animate animate-pulse cursor-pointer fixed md:bottom-[20px] right-[20px] bottom-[70px]">
+  <svg onclick="scrollToTop()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="scrollTop w-8 h-8 md:h-10 md:w-10 text-blue animate animate-pulse cursor-pointer fixed bottom-[20px] right-[20px]">
     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
   </svg>  
 

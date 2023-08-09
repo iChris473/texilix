@@ -128,11 +128,11 @@ const removeMobileNav = () => {
     modal.style.display = 'none';
     mobileNav.style.opacity = 0;
 
-    myElement.addEventListener("transitionend", () => {
-      mobileNav.style.display = "none";
-        modal.style.display = 'none';
-      mobileNav.style.opacity = 1; // Reset opacity
-    });
+    // mobileNav.addEventListener("transitionend", () => {
+        // });
+    mobileNav.style.display = "none";
+    modal.style.display = 'none';
+    mobileNav.style.opacity = 1; // Reset opacity
   
     mobileNav.style.transition = "opacity 0.5s";
 }
@@ -140,3 +140,12 @@ const removeMobileNav = () => {
 mobileX.addEventListener('click', () => { removeMobileNav() });
 
 modal.addEventListener('click', () => { removeMobileNav() });
+
+const scrollDown = (className, target) => {
+    const scrollButton = document.querySelector(className);
+    const targetElement = document.querySelector(target);
+    scrollButton.addEventListener("click", () => {
+        (modal.style.display === 'block') && removeMobileNav();
+        targetElement.scrollIntoView({ behavior: "smooth" });
+    });
+}
