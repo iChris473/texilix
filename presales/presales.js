@@ -212,7 +212,6 @@ async function getHoties(){
     const primary = document.querySelector('.primary');
     // const secondary = document.querySelector('.secondary');
     let hotPresales = await getHotSales();
-    console.log(hotPresales)
     hotPresales.map(presale => {
         const div = document.createElement('div');
         div.innerHTML = `

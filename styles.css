@@ -301,7 +301,7 @@ body{
   }
   
   .scroll-element {
-    width: 200vw;
+    width: 400vw;
     position: absolute;
     left: 0%;
     top: 0%;
@@ -324,16 +324,16 @@ body{
   
   @keyframes primary {
     from {
-      left: 0%;
-    }
-    to {
-      left: -100%;
-    }
+        left: 0%;
+      }
+      to {
+        left: -200%;
+      }
   }
   
   @keyframes secondary {
     from {
-        left: -100%;
+        left: -200%;
       }
       to {
         left: 0%;
