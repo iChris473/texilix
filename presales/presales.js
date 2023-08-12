@@ -199,7 +199,6 @@ const getHotSales = async (next = '', length = 10) => {
     const url = `https://api.presale.world/list-pools?flt=&sts=live&srt=total&pt=${next}`;
     
     const res = await axios.get(url);
-    console.log(res.data)
     
     if(res?.data?.pools.length < 10){
         getHotSales(res?.data?.nextPageToken, length - res?.data?.pools.length);
