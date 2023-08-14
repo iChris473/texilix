@@ -1,20 +1,5 @@
-// const arrowRight = document.querySelector('.arrowRight');
-// const arrowLeft = document.querySelector('.arrowLeft');
 const roadCont = document.querySelector('.hotPresales');
 const launchpad = document.querySelector('.launchpads');
-
-// arrowLeft.addEventListener('click', () => {
-//     roadCont.scroll({
-//         left: roadCont.scrollLeft - 500,
-//         behavior: 'smooth'
-//     })
-// })
-// arrowRight.addEventListener('click', () => {
-//     roadCont.scroll({
-//         left: roadCont.scrollLeft + 500,
-//         behavior: 'smooth'
-//     })
-// })
 
 const presaleDiv = document.querySelector('.presaleDiv');
 const loadMoreBtn = document.querySelector('.loadMoreBtn');
@@ -32,12 +17,8 @@ const sort = document.querySelector('.sort');
 const filterP = document.querySelector('.filterP');
 const sortP = document.querySelector('.sortP');
 
-// SEARCH LINK https://api.presale.world/search-pools_v2?q=PEPE
-// FLITERS KYC & AUDITS = kyc-audit, KYC = kyc, AUDIT = audit, NONE = none
-// STATUS UPCOMING = upcoming, cancelled, live, ended, any
-// SORT = start-time, end-time, recent, recent-update
-
 let uncx_url = 'https://api-pcakev2.unicrypt.network/api/v1/presales/search';
+let dxsale = false;
 let uncxPanswap = true;
 
 const getPresalesMethod = async (url, method, body, currency) => {
@@ -57,11 +38,18 @@ const getPresalesMethod = async (url, method, body, currency) => {
 
         if(body){
             res = await axios[method](url, body);
+        } else if(dxsale) {
+            res = await axios.get(url);
         } else {
             res = await axios.get(`https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
         }
 
-        if(res.data?.count){
+        if(res.data?.meta?.currentPage < res.data?.meta?.totalPages){
+            loadMoreBtn.style.display = 'block';
+            nextToken = res.data?.meta?.currentPage + 1;
+        }
+
+        else if(res.data?.count){
             if(Math.floor(res.data?.count / 20) > (nextToken || 0)) {
                 loadMoreBtn.style.display = 'block';
                 nextToken ? nextToken++ : (nextToken = 1);
@@ -73,6 +61,7 @@ const getPresalesMethod = async (url, method, body, currency) => {
                     uncxPanswap = false;
                     uncx_url = 'https://api-univ2-accounts.unicrypt.network/api/v1/presales/search';
                     nextToken = 0;
+                    console.log("Entered pinksale")
                 }
             }
         } else {
@@ -85,7 +74,7 @@ const getPresalesMethod = async (url, method, body, currency) => {
             }
         }
 
-        (res.data?.pools || res.data?.rows).map(data => {
+        (res.data?.pools || res.data?.rows || res.data?.items).map(data => {
             if(data?.platform ?.toLowerCase() !== 'novation'){
                 const div = document.createElement('div');
                 div.className = 
@@ -96,6 +85,7 @@ const getPresalesMethod = async (url, method, body, currency) => {
         });
 
     } catch (error) {
+        console.log(error)
         window.alert("Sorry, we can't retrieve live presales at the moment, please try again later");
     } finally {
         loader.style.display = 'none';
@@ -103,10 +93,21 @@ const getPresalesMethod = async (url, method, body, currency) => {
 }
 
 let pinkLaunchpad = true;
-
 const getPresales = () => {
 
-    if(launchpad.value !== 'presale_gempad' && pinkLaunchpad){
+    if(launchpad.value === 'dxsale'){
+        if(!dxsale){
+            stats.innerHTML = `
+                <option value="inProgressSales">Live</option>
+                <option value="upcomingSales">Upcoming</option>
+                <option value="successfulSales">Success</option>
+                <option value="uncertainSales">Failed</option>
+            `
+            filterP.style.display = 'none';
+            sortP.style.display = 'none';
+        }
+    }
+    else if(launchpad.value !== 'presale_gempad' && pinkLaunchpad){
         stats.innerHTML = `
             <option value="1">Live</option>
             <option value="0">Upcoming</option>
@@ -143,9 +144,12 @@ const getPresales = () => {
       rows_per_page: 20,
       stage: parseInt(stats.value)
     }
-    if(launchpad.value == 'uncx'){
+
+    if(launchpad.value == 'dxsale'){
+        dxsale = true;
+        getPresalesMethod(`https://scan.dx.app/api/sales/offChain/${stats.value}?sort=creationTimestamp%3ADESC&limit=20&page=${nextToken || 1}`);
+    } else if(launchpad.value == 'uncx'){
         getPresalesMethod(uncx_url, 'post', uncxBody, uncxPanswap ? 'BNB' : 'ETH');
-        // getPresalesMethod('https://api-univ2-accounts.unicrypt.network/api/v1/presales/search', 'post', uncxBody, 'ETH');
     } else {
         getPresalesMethod();
     }
