@@ -222,24 +222,13 @@ body{
     max-width: 500px;
 }
 
-
 /* MEDIA QUERIES */
-@media (max-width: 639px) {
-    
-    section,
-    nav,
-    div,
-    footer {
-        overflow: hidden !important;
-    }
-    .roadCont {
-        grid-auto-columns: 60%;
-    }
+@media (max-width: 1024px) {
     .mobileNav {
         display: block;
         position: fixed;
         bottom: 0;
-        background-color: #0f1724;
+        background-color: #0a0a0c;
         z-index: 99;
         width: 100vw;
         padding: 0;
@@ -259,13 +248,28 @@ body{
         background-color: transparent;
         font-size: .6em;
     }
+    .mobileNav {
+        width: 70% !important;
+    }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 639px) {
+    
+    section,
+    nav,
+    div,
+    footer {
+        overflow: hidden !important;
+    }
+    .roadCont {
+        grid-auto-columns: 60%;
+    }
+    
     .hero-bg {
         top: -45%;
         right: -40%;
         z-index: 1;
-    }
-    .mobileNav {
-        width: 70% !important;
     }
 }
 
