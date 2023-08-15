@@ -27,7 +27,7 @@
   </script>
   <link rel="stylesheet" href="./styles.css">
   <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -37,7 +37,7 @@
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
-    </script>
+  </script> -->
 </head>
 
 <body>
@@ -73,10 +73,7 @@
       </div>
       <div class="flex-center px-1 pt-10 w-full">
         <div class="nav flex-between w-[95%] mx-auto max-w-[1200px]">
-          <div class="flex-center gap-2">
-            <img src="./images/logo.png" alt="logo" class="h-10 sm:h-12 object-contain">
-            <h1 class="md:text-2xl cont text-sm">Texilix</h1>
-          </div>
+          <img src="./images/Logo TEX.png" alt="logo" class="w-24 md:w-32 object-contain">
           <div class="hidden items-center justify-center gap-5 text-xs lg:flex">
             <a href="#" class="monts link">Buy $TEX</a>
             <a onclick="scrollDown('#partners')" class="npartners monts link cursor-pointer">Partners</a>
@@ -90,7 +87,7 @@
             <a target="_blank" rel="noopener" href="https://doc.texilix.com/regulatory-and-risk-compliance/audits" class="monts link">Audits</a>
           </div>
           <div class="flex-center gap-2">
-            <a href="https://app.texilix.com/" class="blue-grad nav-btn px-2 md:px-5 py-3 rounded-lg blue-grad cont link-btn turner">
+            <a href="https://app.texilix.com/" class="blue-grad nav-btn px-2 md:px-5 py-3 rounded-lg blue-grad cont link-btn turner hidden md:flex">
               <p class="turn-child text-xs sm:text-md">Launch app</p>
             </a>
             <img src="./images/barsIcon.svg" alt="bars-icon" class="mobileBar h-7 sm:h-10 cursor-pointer lg:hidden">
@@ -159,14 +156,28 @@
           <p class="monts text-lg sm:text-3xl text-center md:text-start">Streamlining preliminary sales research <br>
             via a robust and intuitive digital platform.</p>
           <div class="flex items-center justify-center md:justify-start gap-5 mt-5">
-            <a href="https://app.texilix.com/"
-              class="blue-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn turner">
-              <p class="turn-child text-sm md:text-lg">Launch App</p>
-            </a>
-            <a href="https://doc.texilix.com"
-              class="border-grad md:px-10 px-2 md:py-5 py-2 rounded-lg cont link-btn text-sm md:text-lg turner">
-              <p class="turn-child text-sm md:text-lg">Document</p>
-            </a>
+            <div class="space-y-2">
+              <a href="https://app.texilix.com/"
+                class="blue-grad md:px-10 px-2 md:py-3 py-2 rounded-lg cont link-btn turner">
+                <p class="turn-child text-sm md:text-lg">Launch App</p>
+              </a>
+              <a href="https://doc.texilix.com"
+                class="border-grad md:px-10 px-2 md:py-3 py-2 rounded-lg cont link-btn text-sm md:text-lg turner flex-center gap-3">
+                <p class="turn-child text-sm md:text-lg">Buy $TEX</p>
+                <img src="./images/TEX.png" alt="texilix-logo" class="h-5 z-10 object-contain">
+              </a>
+            </div>
+            <div class="space-y-2">
+              <a href="https://doc.texilix.com"
+                class="border-grad md:px-10 px-2 md:py-3 py-2 rounded-lg cont link-btn text-sm md:text-lg turner">
+                <p class="turn-child text-sm md:text-lg">Document</p>
+              </a>
+              <a href="https://app.texilix.com/"
+                class="blue-grad md:px-10 px-2 md:py-3 py-2 rounded-lg cont link-btn turner flex-center gap-3">
+                <p class="turn-child text-sm md:text-lg">Telegram</p>
+                <img src="./images/btelegram.png" alt="telegram" class="h-6 z-10 object-contain">
+              </a>
+            </div>
           </div>
         </div>
         <img src="./images/Texilix.gif" alt="" class="gif h-[250px] my-10 md:my-0 md:mt-0 object-contain md:h-[400px]">
@@ -496,7 +507,7 @@
     <!-- MOBILE APP -->
     <section id="mobile_app" class="py-20 md:py-32 max-w-[1300px] w-[95%] flex-center flex-col-reverse md:flex-row-reverse lg:gap-20 mx-auto">
       <div class="flex-center flex-col gap-7">
-        <img data-aos="fade-up" data-aos-duration="1500" src="./images/PHONE.png" alt="mobile-app" class="h-[350px] md:h-[450px] object-contain">
+        <img data-aos="fade-up" data-aos-duration="1500" src="./images/PHONE.png" alt="mobile-app" class="h-[350px] md:h-[450px] object-contain shake mx-5">
         <div class="md:hidden">
           <p class="m-0 text-gray-500 nunito text-center md:text-left">DOWNLOAD FROM</p>
           <div class="mt-2 flex items-center justify-center md:justify-start gap-3">
@@ -505,7 +516,7 @@
           </div>
         </div>
       </div>
-      <div class="max-w-[500px] m-3">
+      <div class="max-w-[500px] mx-3">
         <h1 class="text-3xl text-center md:text-left md:text-5xl cont blue-text">Mobile App</h1>
         <p class="text-gray-400 mt-2 text-center md:text-left text-lg nunito">
           Texilix Mobile App is a major development in our ongoing efforts to enhance your investment experience.
@@ -583,7 +594,7 @@
 
     <!-- FOOTERS -->
     <footer id="footer" class="mt-5">
-      <div class="flex items-center justify-start lg:justify-center flex-col gap-10 py-20 lg:py-10 lg:gap-0 lg:flex-row max-w-[1300px] mx-auto w-[95%] border-t border-gray-800">
+      <div class="flex items-center justify-start lg:justify-center flex-col gap-10 py-10 lg:gap-0 lg:flex-row max-w-[1300px] mx-auto w-[95%] border-t border-gray-800">
   
         <!-- FIRST SECTION -->
         <div class="w-full lg:w-[20%] flex-col flex items-center lg:items-start justify-center lg:justify-start">
@@ -667,19 +678,19 @@
             You can unsubscribe anytime. <br> For more details, review our 
             <a class="blue-text" href="https://doc.texilix.com/legal/privacy-policy">Privacy Policy</a>
           </p>
+          <p class="cont text-center text-[10px] text-gray-400 mt-2">team@texilix.com</p>
         </div>
       </div>
       <!-- <p class="cont text-center lg:hidden text-[8px] mt-14">Texilix ©2023. All rights reserved.</p> -->
     </footer>
 
-    <div class="border-t border-gray-800 md:mt-10s md:pb-10 pb-20 w-[95%] mx-auto max-w-[500px]">
+    <div class="border-b border-gray-800 mb-2 pb-2 w-[95%] mx-auto max-w-[500px]">
       <p class="cont text-center opacity-60 text-[10px] mt-5">Texilix © 2023 - All Rights Reserved</p>
-      <p class="cont text-center text-[10px] text-blue mb-10 md:mb-0">team@texilix.com</p>
     </div>
   </div>
 
   <!-- SCROLL TO TOP -->
-  <svg style="z-index: 99999999999;" onclick="scrollToTop()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="scrollTop w-8 h-8 md:h-10 md:w-10 text-blue animate animate-pulse cursor-pointer fixed bottom-[20px] left-[20px]">
+  <svg style="z-index: 99999999999;" onclick="scrollToTop()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="scrollTop w-8 h-8 md:h-10 md:w-10 text-blue animate animate-pulse cursor-pointer fixed bottom-[20px] right-[20px]">
     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
   </svg>  
 
