@@ -144,3 +144,16 @@ const scrollDown = (target) => {
     (modal.style.display === 'block') && removeMobileNav();
     targetElement.scrollIntoView({ behavior: "smooth" });
 }
+
+let prevScrollY = window.scrollY;
+const navDivDiv = document.querySelector('.navDivDiv');
+
+window.addEventListener('scroll', function() {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > prevScrollY) {
+        navDivDiv.classList.add('stickyNav')
+    } else if (currentScrollY === 0) {
+        navDivDiv.classList.remove('stickyNav')
+    }
+    prevScrollY = currentScrollY;
+});
