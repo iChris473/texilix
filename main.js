@@ -152,7 +152,7 @@ window.addEventListener('scroll', function() {
     const currentScrollY = window.scrollY;
     if (currentScrollY > prevScrollY) {
         navDivDiv.classList.add('stickyNav')
-    } else if (currentScrollY === 0) {
+    } else if (currentScrollY < 10) {
         navDivDiv.classList.remove('stickyNav')
     }
     prevScrollY = currentScrollY;
