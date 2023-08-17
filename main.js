@@ -156,6 +156,11 @@ window.addEventListener('scroll', function() {
     } else if (currentScrollY === 0) {
         navDivDiv.classList.remove('hidden')
         navDivDiv.classList.add('flex')
+    } else if (currentScrollY <= 50){
+        console.log(currentScrollY)
+        window.scrollTo({
+            top: 0
+        });
     }
     prevScrollY = currentScrollY;
 });
