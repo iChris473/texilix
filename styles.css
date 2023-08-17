@@ -234,7 +234,7 @@ body{
         padding: 0;
         margin: 0;
     }
-    .mobileNav div {
+    .mobileNav > .nav-links {
         padding: 20px;
         display: flex;
         align-items: center;
