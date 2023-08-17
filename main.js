@@ -151,9 +151,11 @@ const navDivDiv = document.querySelector('.navDivDiv');
 window.addEventListener('scroll', function() {
     const currentScrollY = window.scrollY;
     if (currentScrollY > prevScrollY) {
-        navDivDiv.classList.add('stickyNav')
-    } else if (currentScrollY < 10) {
-        navDivDiv.classList.remove('stickyNav')
+        navDivDiv.classList.remove('flex')
+        navDivDiv.classList.add('hidden')
+    } else if (currentScrollY === 0) {
+        navDivDiv.classList.remove('hidden')
+        navDivDiv.classList.add('flex')
     }
     prevScrollY = currentScrollY;
 });
