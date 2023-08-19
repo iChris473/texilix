@@ -145,22 +145,7 @@ const scrollDown = (target) => {
     targetElement.scrollIntoView({ behavior: "smooth" });
 }
 
-let prevScrollY = window.scrollY;
-const navDivDiv = document.querySelector('.navDivDiv');
-
-window.addEventListener('scroll', function() {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > prevScrollY) {
-        navDivDiv.classList.remove('flex')
-        navDivDiv.classList.add('hidden')
-    } else if (currentScrollY === 0) {
-        navDivDiv.classList.remove('hidden')
-        navDivDiv.classList.add('flex')
-    } else if (currentScrollY <= 50){
-        console.log(currentScrollY)
-        window.scrollTo({
-            top: 0
-        });
-    }
-    prevScrollY = currentScrollY;
-});
+window.addEventListener('scroll', function(){
+    const header = document.querySelector('.navDivDiv');
+    header.classList.toggle('!hidden', window.scrollY > 0);
+})
