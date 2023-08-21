@@ -222,66 +222,12 @@ body{
     max-width: 500px;
 }
 
-/* MEDIA QUERIES */
-@media (max-width: 1024px) {
-    .mobileNav {
-        display: block;
-        position: fixed;
-        bottom: 0;
-        background-color: #0a0a0c;
-        z-index: 99;
-        width: 100vw;
-        padding: 0;
-        margin: 0;
-    }
-    .mobileNav > .nav-links {
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 80%;
-        max-width: 800px;
-        margin: auto;
-        background-color: transparent;
-    }
-    .mobileNav div a {
-        background-color: transparent;
-        font-size: .6em;
-    }
-    .mobileNav {
-        width: 70% !important;
-    }
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 639px) {
-    
-    section,
-    nav,
-    div,
-    footer {
-        overflow: hidden !important;
-    }
-    .roadCont {
-        grid-auto-columns: 60%;
-    }
-    
-    .hero-bg {
-        top: -45%;
-        right: -40%;
-        z-index: 1;
-    }
-    .scroll-element img {
-        width: 140%;
-    }
-    @keyframes primary {
-    from {
-        left: 0%;
-        }
-        to {
-        left: -320%;
-        }
-    }
+.stickyNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0a0a0c;
+    z-index: 9999999;
 }
 
 /* Initial hidden state */
@@ -315,6 +261,15 @@ body{
     overflow-x: hidden;
   }
   
+  .scroll-element img {
+    width: 100%;
+    margin-left: 50px;
+  }
+  
+  .primary {
+    animation: primary 15s linear infinite;
+  }
+
   .scroll-element {
     width: 400vw;
     position: absolute;
@@ -324,54 +279,79 @@ body{
     align-items: center;
     justify-content: space-around;
   }
-  
-  .scroll-element img {
-    width: 100%;
-  }
-  
-  .primary {
-    animation: primary 10s linear infinite;
-  }
-  
-  .secondary {
-    animation: secondary 10s linear infinite;
-  }
-  
+
   @keyframes primary {
-    from {
-        left: 0%;
+      from {
+          left: 0%;
       }
+
       to {
-        left: -200%;
+          left: -200%;
       }
   }
-  
-  @keyframes secondary {
-    from {
-        left: -200%;
-      }
-      to {
-        left: 0%;
-      }
-  }
-  
 
-  /* ANIMATIONS */
+/* MEDIA QUERIES */
+@media (max-width: 639px) {
+    
+    section,
+    nav,
+    div,
+    footer {
+        overflow: hidden !important;
+    }
+    .roadCont {
+        grid-auto-columns: 60%;
+    }
+    
+    .hero-bg {
+        top: -45%;
+        right: -40%;
+        z-index: 1;
+    }
+    .scroll-element {
+        width: 800vw;
+    }
+    .primary {
+        animation: primary 15s linear infinite;
+    }
+    @keyframes primary {
+        from {
+            left: 0%;
+        }
 
-.shake {
-    animation: shake 5s ease infinite;
-  }
-
-@keyframes shake {
-    0%, 100% {transform: translateX(0);}
-    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-    20%, 40%, 60%, 80% {transform: translateX(10px);}
+        to {
+            left: -400%;
+        }
+    }
 }
 
-.stickyNav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #0a0a0c;
-    z-index: 9999999;
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
+    .mobileNav {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        background-color: #0a0a0c;
+        z-index: 99;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+    }
+    .mobileNav > .nav-links {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+        max-width: 800px;
+        margin: auto;
+        background-color: transparent;
+    }
+    .mobileNav div a {
+        background-color: transparent;
+        font-size: .6em;
+    }
+    .mobileNav {
+        width: 70% !important;
+    }
 }
