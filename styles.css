@@ -271,6 +271,17 @@ body{
         right: -40%;
         z-index: 1;
     }
+    .scroll-element img {
+        width: 140%;
+    }
+    @keyframes primary {
+    from {
+        left: 0%;
+        }
+        to {
+        left: -320%;
+        }
+    }
 }
 
 /* Initial hidden state */
@@ -319,11 +330,11 @@ body{
   }
   
   .primary {
-    animation: primary 5s linear infinite;
+    animation: primary 10s linear infinite;
   }
   
   .secondary {
-    animation: secondary 5s linear infinite;
+    animation: secondary 10s linear infinite;
   }
   
   @keyframes primary {
@@ -331,7 +342,7 @@ body{
         left: 0%;
       }
       to {
-        left: -100%;
+        left: -200%;
       }
   }
   
