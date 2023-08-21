@@ -81,9 +81,16 @@ body{
     border-color: linear-gradient(63deg, #016dfa, #01f6fa);
 }
 .hero {
-    background-image: radial-gradient(circle closest-corner at 12% 50%, #01f6fa1e 61%, #0c0c0c);
+    /* background-image: radial-gradient(circle closest-corner at 12% 50%, #01f6fa1e 61%, #0c0c0c); */
     position: relative;
-    min-height: 60vh;
+    min-height: 90vh;
+}
+.backgroundhero {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 .backers {
     background-image: radial-gradient(circle closest-corner at 60% 50%, #01f6fa0f 41%, #0c0c0c);
