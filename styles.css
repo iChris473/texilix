@@ -23,7 +23,8 @@ body{
     width:100%;
     overflow-x: hidden;
     position: relative;
-    background: #0a0a0c;
+    /* background: #0a0a0c; */
+    background: #010708;
     color: rgb(228, 228, 228);
 }
 .circle {
@@ -145,8 +146,8 @@ body{
     background: #131318;
 }
 .black-bg::after {
-    background: #010708;
-    background-color: #010708;
+    background: #1e1e26;
+    background-color: rgb(13, 18, 30);
 }
 .turner-vertical::before {
     width: 30% !important;
