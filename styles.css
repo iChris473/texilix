@@ -319,11 +319,11 @@ body{
   }
   
   .primary {
-    animation: primary 20s linear infinite;
+    animation: primary 5s linear infinite;
   }
   
   .secondary {
-    animation: secondary 20s linear infinite;
+    animation: secondary 5s linear infinite;
   }
   
   @keyframes primary {
@@ -331,7 +331,7 @@ body{
         left: 0%;
       }
       to {
-        left: -200%;
+        left: -100%;
       }
   }
   
