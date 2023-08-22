@@ -1,3 +1,7 @@
+window.addEventListener('scroll', function(){
+    const header = document.querySelector('.navDivDiv');
+    header.classList.toggle('!hidden', window.scrollY > 0);
+})
 const roadCont = document.querySelector('.hotPresales');
 const launchpad = document.querySelector('.launchpads');
 

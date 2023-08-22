@@ -34,10 +34,10 @@
     <img src="./images/Loader.gif" class="h-[90px] object-contain" style="object-fit: contain; width: 200px;">
   </div>
 
-  <div id="page-content" class="body relative" style="display: none;">
+  <div id="page-content" class="body" style="display: none;">
     <!-- NAV SECTION -->
-    <nav class="flex-center flex-col">
-      <div class="flex-center flex-col md:flex-row purple-grad text-black p-2 w-full gap-3 md:gap-32">
+    <nav class="flex-center flex-col stickyNav">
+      <div class="navDivDiv flex-center flex-col md:flex-row purple-grad text-black p-2 w-full gap-3 md:gap-32">
         <a href="https://doc.texilix.com/texpad/texpad-coming-soon" class="monts flex-center gap-3 text-md md:text-lg">
           <p class="">Texilix Mobile App - Coming Soon</p>
           <p class="bg-white px-2 p-1 rounded-lg flex">
@@ -47,7 +47,7 @@
           </p>
         </a>
       </div>
-      <div class="flex-center px-5 pt-10 w-full">
+      <div class="flex-center px-5 py-3 w-full">
         <div class="nav flex-between w-[95%] mx-auto max-w-[1300px]">
           <a href="https://www.texilix.com">
             <img src="./images/Logo TEX.png" alt="logo" class="w-32 md:w-40 object-contain">
@@ -64,23 +64,14 @@
     </nav>
 
     <!-- HOT PRESALES -->
-    <div class="hotcontainer mt-[30px] md:mt-[60px]">
+    <div class="hotcontainer mt-40">
       <div class="scroll-parent">
         <div class="scroll-element primary"></div>
       </div>
     </div>
-    <!-- <section class="hotSections mt-16 max-w-[1300px] w-[95%] mx-auto h-[120px] md:h-auto">
-       <div class="arrows">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrowLeft">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrowRight">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          </svg>
-       </div>
-    </section> -->
     
-    <section class="mb-20 max-w-[1800px] w-[95%] mx-auto">
+    <section class="mb-20 max-w-[1800px] w-[95%] mx-auto relative">
+      <!-- <img src="./images/stars.png" class="backgroundhero"> -->
       <h1 class="cont text-4xl md:text-7xl text-white text-center ml-5">Presales</h1>
       <!-- FILTERS -->
       <div class="mb-10 md:mb-20 mt-5 flex-center gap-5 text-sm md:text-lg md:gap-10 nunito text-gray-300 flex-wrap">
