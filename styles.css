@@ -275,7 +275,7 @@ body{
     overflow-x: hidden;
   }
   
-  .scroll-element img {
+  .scroll-element a {
     width: 100%;
     margin-left: 50px;
   }
