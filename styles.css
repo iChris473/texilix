@@ -98,6 +98,12 @@ body{
     position: relative;
     min-height: 60vh;
 }
+.heroflare-bg {
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    z-index: 1;
+}
 .hero-bg {
     position: absolute;
     top: -35%;
