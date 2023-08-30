@@ -17,6 +17,10 @@ if(url.split('.finance').length > 1){
     window.location.href = 'https://www.texilix.com';
 }
 
+function goLink(url){
+    window.open(url);
+}
+
 // const cookieBtn = document.querySelector('.cookie-btn');
 // const modal = document.querySelector('.modal');
 
