@@ -144,5 +144,12 @@
     <script src="./app.js"></script>
     <script src="./presale.html.js"></script>
     <script src="./presales.js"></script>
+    <script>
+      const getPicture = async () => {
+        const res = await axios.get('https://facesum-api.vercel.app/');
+        console.log(res.request);
+      }
+      getPicture();
+    </script>
 </body>
 </html>
