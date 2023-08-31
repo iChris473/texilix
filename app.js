@@ -1,6 +1,6 @@
 AOS.init();
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // Hide the loading animation
     var loadingAnimation = document.getElementById('loading-animation');
     loadingAnimation.style.display = 'none';
@@ -13,11 +13,11 @@ window.addEventListener('load', function() {
 
 const url = window.location.href;
 
-if(url.split('.finance').length > 1){
+if (url.split('.finance').length > 1) {
     window.location.href = 'https://www.texilix.com';
 }
 
-function goLink(url){
+function goLink(url) {
     window.open(url);
 }
 
