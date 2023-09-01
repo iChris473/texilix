@@ -21,6 +21,28 @@ app.get("/", async (req, res) => {
     return res.json(data);
 });
 
+// Route for hot presales
+app.get("/hotpresales", async (req, res) => {
+    try {
+        let hotSalesArray = [];
+    
+        const getHotSales = async (next = '', length = 5) => {
+            const url = `https://api.presale.world/list-pools?flt=&sts=live&srt=total&pt=${next}`;
+            const res = await axios.get(url);
+            if (res?.data?.pools.length < 5) {
+                getHotSales(res?.data?.nextPageToken, length - res?.data?.pools.length);
+            }
+            return hotSalesArray.concat(res?.data?.pools?.splice(0, length));
+        }
+    
+        let hotPresales = await getHotSales();
+        
+        return res.json(hotPresales);
+    } catch (error) {
+        return res.status(404).json("Error retreiving data");
+    }
+})
+
 const port = process.env.PORT || 3600;
 
 app.listen(port, () => console.log(`Backend running on ${port}`));
