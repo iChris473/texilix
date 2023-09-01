@@ -1,5 +1,19 @@
 AOS.init();
 
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+      pageLanguage: 'en',
+
+      autoDisplay: 'true',
+    //   includedLanguages:'hi,en,bn,id,fr',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+    }, 'google_translate_element');
+
+}
+
 window.addEventListener('load', function () {
     // Hide the loading animation
     var loadingAnimation = document.getElementById('loading-animation');

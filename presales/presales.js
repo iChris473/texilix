@@ -1,6 +1,6 @@
 window.addEventListener('scroll', function(){
     const header = document.querySelector('.navDivDiv');
-    header.classList.toggle('!hidden', window.scrollY > 0);
+    header?.classList?.toggle('!hidden', window.scrollY > 0);
 })
 const roadCont = document.querySelector('.hotPresales');
 const launchpad = document.querySelector('.launchpads');
@@ -43,6 +43,8 @@ const getPresalesMethod = async (url, method, body, currency) => {
         if(body){
             res = await axios[method](url, body);
         } else if(dxsale) {
+            console.log("actual dxsale");
+            console.log(url);
             res = await axios.get(url);
         } else {
             res = await axios.get(`https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
@@ -97,21 +99,21 @@ const getPresalesMethod = async (url, method, body, currency) => {
 }
 
 let pinkLaunchpad = true;
+
 const getPresales = () => {
 
     if(launchpad.value === 'dxsale'){
-        if(!dxsale){
-            stats.innerHTML = `
-                <option value="inProgressSales">Live</option>
-                <option value="upcomingSales">Upcoming</option>
-                <option value="successfulSales">Success</option>
-                <option value="uncertainSales">Failed</option>
-            `
-            filterP.style.display = 'none';
-            sortP.style.display = 'none';
-        }
+        stats.innerHTML = `
+            <option value="inProgressSales">Live</option>
+            <option value="upcomingSales">Upcoming</option>
+            <option value="successfulSales">Success</option>
+            <option value="uncertainSales">Failed</option>
+        `
+        filterP.style.display = 'none';
+        sortP.style.display = 'none';
     }
-    else if(launchpad.value !== 'presale_gempad' && pinkLaunchpad){
+    
+    if(launchpad.value =='uncx'){
         stats.innerHTML = `
             <option value="1">Live</option>
             <option value="0">Upcoming</option>
@@ -150,11 +152,14 @@ const getPresales = () => {
     }
 
     if(launchpad.value == 'dxsale'){
+        console.log("DXSALE")
         dxsale = true;
         getPresalesMethod(`https://scan.dx.app/api/sales/offChain/${stats.value}?sort=creationTimestamp%3ADESC&limit=20&page=${nextToken || 1}`);
     } else if(launchpad.value == 'uncx'){
+        console.log("UNCX");
         getPresalesMethod(uncx_url, 'post', uncxBody, uncxPanswap ? 'BNB' : 'ETH');
     } else {
+        dxsale = false;
         getPresalesMethod();
     }
 }
@@ -175,16 +180,52 @@ searchForm.addEventListener('submit', e => {
     reloadData = false;
 });
 
-const reloadDataFunction = () => {
-    nextToken = '';
-    uncxPanswap = true;
-    isDataFinished = false;
-    reloadData = true;
-    getPresales();
-    reloadData = false;
+const getKingpadSales = async (id) => {
+    let allSales = [];
+    while (id < 3) {
+        try {
+          const res = await axios.get(`https://api.kingpad.finance/project_details?id=${id}`);
+          allSales.push(res.data);
+          id++;
+        } catch (error) {
+          console.log(error);
+        }
+    }
+    return allSales;
+}
+
+const reloadDataFunction = async () => {
+    if(launchpad.value == 'kingpad'){
+        presaleDiv.innerHTML = "";
+        loader.style.display = 'flex';
+        loadMoreBtn.style.display = 'none';
+        const sales = await getKingpadSales(1);
+        sales.map(data => {
+            const div = document.createElement('div');
+            div.className = 
+            "shadow-lg bg-gray-900 p-5 rounded-xl w-full max-w-[400px] flex items-start justify-start flex-col";
+            div.innerHTML = presaleHtml(data, data?.currency || "ETH");
+            presaleDiv.appendChild(div);
+        })
+        loader.style.display = 'none';
+        stats.innerHTML = `
+            <option value="any">All</option>
+        `
+        filterP.style.display = 'none';
+        sortP.style.display = 'none';
+        searchForm.style.display = 'none';
+    } else {
+        nextToken = '';
+        uncxPanswap = true;
+        isDataFinished = false;
+        reloadData = true;
+        getPresales();
+        reloadData = false;
+    }
 }
 
 stats.addEventListener('change', () => {
+    if(launchpad.value == 'kingpad') return;
     reloadDataFunction();
 });
 

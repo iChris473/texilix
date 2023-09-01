@@ -3,6 +3,40 @@
     src: url('./images/conthrax-sb.otf');
 }
 
+#google_translate_element{
+    margin:0px;
+    padding-top: 9px;
+    }
+    .goog-te-gadget-simple:before{
+      content:'🇺🇸';
+      font-size:30px;
+    }
+  .goog-te-banner-frame.skiptranslate,.goog-te-gadget-simple img,img.goog-te-gadget-icon,.goog-te-menu-value span,.goog-text-highlight{display:none!important}
+
+  .goog-te-menu-frame,.goog-te-balloon-frame{
+    box-shadow:none!important
+    }
+  .goog-te-gadget-simple{
+    /* background-color:transparent;
+    border:2px solid #eee;
+    border-radius:5px;
+    padding: 0px;
+    box-shadow:0 2px 10px -7px rgba(0,0,0,0.2);
+    font-size:0; */
+    background-color: transparent !important;
+    border: none !important;
+    }
+
+body{top:0px!important}
+
+.VIpgJd-ZVi9od-xl07Ob-lTBxed > span {
+    display: none;
+}
+
+table {
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
