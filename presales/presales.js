@@ -40,12 +40,18 @@ const getPresalesMethod = async (url, method, body, currency) => {
     try {
         
         let res;
+        let texilixObj;
 
         if(body){
             res = await axios[method](url, body);
         } else if(dxsale) {
             res = await axios.get(url);
         } else {
+            if(stats.value == 'any' || stats.value == 'upcoming'){
+                const texRes = await axios.get('https://api.presale.world/search-pools_v2?q=Texilix');
+                texilixObj = texRes.data.pools[0];
+                texilixObj['slug'] = 'customTexilix';
+            }
             res = await axios.get(url || `https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
         }
 
@@ -78,8 +84,11 @@ const getPresalesMethod = async (url, method, body, currency) => {
             }
         }
 
-        (res.data?.pools || res.data?.rows || res.data?.items).map(data => {
-            if(data?.platform ?.toLowerCase() !== 'novation'){
+        let texxedArray = res.data?.pools;
+        texilixObj && texxedArray?.unshift(texilixObj);
+
+        (texxedArray || res.data?.rows || res.data?.items).map(data => {
+            if(data?.platform ?.toLowerCase() !== 'novation' || data?.slug !== 'texilix'){
                 const div = document.createElement('div');
                 div.className = 
                 "shadow-lg bg-gray-900 p-5 rounded-xl w-full max-w-[400px] flex items-start justify-start flex-col";
@@ -89,6 +98,7 @@ const getPresalesMethod = async (url, method, body, currency) => {
         });
 
     } catch (error) {
+        console.log(error);
         window.alert("Sorry, we can't retrieve live presales at the moment, please try again later");
     } finally {
         loader.style.display = 'none';
