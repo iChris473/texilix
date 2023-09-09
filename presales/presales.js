@@ -15,6 +15,7 @@ let isLoading = true;
 let reloadData = false;
 
 const search = document.querySelector('.search');
+const searchForm = document.querySelector('.submitForm');
 const stats = document.querySelector('.status');
 const filter = document.querySelector('.filter');
 const sort = document.querySelector('.sort');
@@ -43,11 +44,9 @@ const getPresalesMethod = async (url, method, body, currency) => {
         if(body){
             res = await axios[method](url, body);
         } else if(dxsale) {
-            console.log("actual dxsale");
-            console.log(url);
             res = await axios.get(url);
         } else {
-            res = await axios.get(`https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
+            res = await axios.get(url || `https://api.presale.world/list-pools?flt=${filter.value}&sts=${stats.value}&srt=${sort.value}&pt=${nextToken}`);
         }
 
         if(res.data?.meta?.currentPage < res.data?.meta?.totalPages){
@@ -67,7 +66,6 @@ const getPresalesMethod = async (url, method, body, currency) => {
                     uncxPanswap = false;
                     uncx_url = 'https://api-univ2-accounts.unicrypt.network/api/v1/presales/search';
                     nextToken = 0;
-                    console.log("Entered pinksale")
                 }
             }
         } else {
@@ -91,7 +89,6 @@ const getPresalesMethod = async (url, method, body, currency) => {
         });
 
     } catch (error) {
-        console.log(error)
         window.alert("Sorry, we can't retrieve live presales at the moment, please try again later");
     } finally {
         loader.style.display = 'none';
@@ -100,39 +97,41 @@ const getPresalesMethod = async (url, method, body, currency) => {
 
 let pinkLaunchpad = true;
 
-const getPresales = () => {
+const getPresales = (isLaunchPadChanged) => {
 
     if(launchpad.value === 'dxsale'){
-        stats.innerHTML = `
+        isLaunchPadChanged && (stats.innerHTML = `
             <option value="inProgressSales">Live</option>
             <option value="upcomingSales">Upcoming</option>
             <option value="successfulSales">Success</option>
             <option value="uncertainSales">Failed</option>
-        `
+        `)
         filterP.style.display = 'none';
         sortP.style.display = 'none';
     }
     
     if(launchpad.value =='uncx'){
-        stats.innerHTML = `
+        isLaunchPadChanged && (stats.innerHTML = `
             <option value="1">Live</option>
             <option value="0">Upcoming</option>
             <option value="2">Success</option>
             <option value="3">Failed</option>
-        `
+        `)
+        searchForm.style.display = 'none';
         pinkLaunchpad = false;
         filterP.style.display = 'none';
         sortP.style.display = 'none';
     }
 
     if(launchpad.value == 'presale_gempad'){
-        stats.innerHTML = `
+        isLaunchPadChanged && (stats.innerHTML = `
             <option value="any">All</option>
             <option value="live">Live</option>
             <option value="upcoming">Upcoming</option>
             <option value="ended">Ended</option>
             <option value="cancelled">Cancelled</option>
-        `
+        `)
+        searchForm.style.display = 'flex';
         pinkLaunchpad = true;
         filterP.style.display = 'flex';
         sortP.style.display = 'flex';
@@ -152,11 +151,9 @@ const getPresales = () => {
     }
 
     if(launchpad.value == 'dxsale'){
-        console.log("DXSALE")
         dxsale = true;
         getPresalesMethod(`https://scan.dx.app/api/sales/offChain/${stats.value}?sort=creationTimestamp%3ADESC&limit=20&page=${nextToken || 1}`);
     } else if(launchpad.value == 'uncx'){
-        console.log("UNCX");
         getPresalesMethod(uncx_url, 'post', uncxBody, uncxPanswap ? 'BNB' : 'ETH');
     } else {
         dxsale = false;
@@ -170,13 +167,12 @@ loadMoreBtn.addEventListener('click', () => {
     getPresales();
 });
 
-const searchForm = document.querySelector('.submitForm');
 searchForm.addEventListener('submit', e => {
     e.preventDefault();
     isDataFinished = false;
     reloadData = true;
     nextToken = '';
-    getPresales(`https://api.presale.world/search-pools_v2?q=${search.value}`);
+    getPresalesMethod(`https://api.presale.world/search-pools_v2?q=${search.value}`);
     reloadData = false;
 });
 
@@ -188,13 +184,13 @@ const getKingpadSales = async (id) => {
           allSales.push(res.data);
           id++;
         } catch (error) {
-          console.log(error);
+        //   console.log(error);
         }
     }
     return allSales;
 }
 
-const reloadDataFunction = async () => {
+const reloadDataFunction = async (isLaunchPadChanged = false) => {
     if(launchpad.value == 'kingpad'){
         presaleDiv.innerHTML = "";
         loader.style.display = 'flex';
@@ -219,13 +215,13 @@ const reloadDataFunction = async () => {
         uncxPanswap = true;
         isDataFinished = false;
         reloadData = true;
-        getPresales();
+        getPresales(isLaunchPadChanged);
         reloadData = false;
     }
 }
 
 stats.addEventListener('change', () => {
-    if(launchpad.value == 'kingpad') return;
+    // if(launchpad.value == 'kingpad') return;
     reloadDataFunction();
 });
 
@@ -238,7 +234,7 @@ sort.addEventListener('change', () => {
 });
 
 launchpad.addEventListener('change', () => {
-    reloadDataFunction();
+    reloadDataFunction(true);
 });
 
 let hotSalesArray = [];

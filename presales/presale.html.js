@@ -35,7 +35,7 @@ const presaleHtml = (data, currency) => (`
     <!-- CURRENCY -->
     <div class="flex flex-col my-5">
       <p class="monospace text-md opacity-80">${data?.type ? "TYPE" : "CURRENCY"}</p>
-      <h3 class="nunito blue-text text-xl">${data?.type || data?.currency}</h3>
+      <h3 class="nunito blue-text text-xl">${data?.type || data?.currency || currency}</h3>
     </div>
     <!-- CAPS -->
     <div class="flex items-start justify-between w-[90%] gap-2">
