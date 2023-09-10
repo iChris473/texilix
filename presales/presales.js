@@ -116,6 +116,8 @@ const getPresales = (isLaunchPadChanged) => {
             <option value="successfulSales">Success</option>
             <option value="uncertainSales">Failed</option>
         `)
+        searchForm.style.display = 'none';
+        pinkLaunchpad = false;
         filterP.style.display = 'none';
         sortP.style.display = 'none';
     }
@@ -222,7 +224,6 @@ const reloadDataFunction = async (isLaunchPadChanged = false) => {
         searchForm.style.display = 'none';
     } else {
         nextToken = '';
-        uncxPanswap = true;
         isDataFinished = false;
         reloadData = true;
         getPresales(isLaunchPadChanged);
@@ -244,6 +245,10 @@ sort.addEventListener('change', () => {
 });
 
 launchpad.addEventListener('change', () => {
+    if(launchpad.value =='uncx'){
+        uncx_url = 'https://api-pcakev2.unicrypt.network/api/v1/presales/search';
+        uncxPanswap = true;
+    }
     reloadDataFunction(true);
 });
 
