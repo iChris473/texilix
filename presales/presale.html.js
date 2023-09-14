@@ -28,7 +28,8 @@ const presaleHtml = (data, currency) => (`
   <div class="flex gap-3 text-xl monospace">
     <p class="text-gray-400">Launchpad:</p>
     <span class="blue-text capitalize">
-      ${data?.platform == 'pink' ? "Pinksale" : data?.s_token ? "UNCX" : data?.kingpass_min_contribution ? "Kingpad" : data?.platform || "DXSale" }
+      ${data?.platform == 'pink' ? "Pinksale" : data?.s_token ? "UNCX" : data?.kingpass_min_contribution ? "Kingpad" : data?.contributions ? 
+      "CookieSale" : data?.platform || "DXSale" }
     </span>
   </div>
   <div>
@@ -52,13 +53,13 @@ const presaleHtml = (data, currency) => (`
     <div style="position: relative" class="mt-8 mb-3 pb-2">
         <div class="flex items-center justify-between my-5 w-[90%]">
           <div>
-            ${(data?.audit || data?.isAudited) ? `<a href=${data?.audit} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">Audit</a>` : ""}
-            ${(data?.kyc || data?.isKYC) ? `<a href=${data?.kyc} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">KYC</a>` : ""}
+            ${(!data?.contributions && (data?.audit || data?.isAudited)) ? `<a href=${data?.audit} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">Audit</a>` : ""}
+            ${data?.contributions ? "" : (data?.kyc || data?.isKYC) ? `<a href=${data?.kyc} class="mb-5 truncate-text text-lg text-left nunito border-b border-blue mr-5 text-blue">KYC</a>` : ""}
           </div>
-          <p class="text-lg nunito blue-text capitalize">${typeof data?.status == 'string' ? data?.status : data?.kingpass_min_contribution ? "Ended" : ""}</p>
+          <p class="${data?.status == 5 && 'none'} text-lg nunito blue-text capitalize">${data?.contributions ? "" : typeof data?.status == 'string' ? data?.status : data?.kingpass_min_contribution ? "Ended" : ""}</p>
         </div>
         <p class="truncate-text text-sm text-left opacity-80 monts mr-5">
-          ${data?.socials?.description || data?.description  || formatDesc(data?.descriptionText) || ""}
+          ${data?.socials?.description || data?.description  || formatDesc(data?.descriptionText || "") || ""}
         </p>
         <p style="position: absolute" class="!absolue bottom-0 opacity-40 right-5 text-xs">
           ${(data?.socials?.description || data?.descriptionText || data?.description) ? 'see more...' : ""}.

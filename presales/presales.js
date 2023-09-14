@@ -98,6 +98,27 @@ const getPresalesMethod = async (url, method, body, currency) => {
         });
 
     } catch (error) {
+        window.alert("Sorry, we can't retrieve live presales at the moment, please try again later");
+    } finally {
+        loader.style.display = 'none';
+    }
+}
+
+async function getCookieSales(){
+    loader.style.display = 'flex';
+    loadMoreBtn.style.display = 'none';
+    presaleDiv.innerHTML = "";
+    try {
+        const res = await axios.get('https://cookiev3-api.cookiesale.io/cards?mainnet=true');
+        const data = res.data?.cards || [];
+        data.map(data => {
+            const div = document.createElement('div');
+            div.className = 
+            "shadow-lg bg-gray-900 p-5 rounded-xl w-full max-w-[400px] flex items-start justify-start flex-col";
+            div.innerHTML = presaleHtml(data);
+            presaleDiv.appendChild(div);
+        });
+    } catch (error) {
         console.log(error);
         window.alert("Sorry, we can't retrieve live presales at the moment, please try again later");
     } finally {
@@ -128,6 +149,16 @@ const getPresales = (isLaunchPadChanged) => {
             <option value="0">Upcoming</option>
             <option value="2">Success</option>
             <option value="3">Failed</option>
+        `)
+        searchForm.style.display = 'none';
+        pinkLaunchpad = false;
+        filterP.style.display = 'none';
+        sortP.style.display = 'none';
+    }
+    
+    if(launchpad.value =='cookiesale'){
+        isLaunchPadChanged && (stats.innerHTML = `
+            <option value="1">All</option>
         `)
         searchForm.style.display = 'none';
         pinkLaunchpad = false;
@@ -167,6 +198,8 @@ const getPresales = (isLaunchPadChanged) => {
         getPresalesMethod(`https://scan.dx.app/api/sales/offChain/${stats.value}?sort=creationTimestamp%3ADESC&limit=20&page=${nextToken || 1}`);
     } else if(launchpad.value == 'uncx'){
         getPresalesMethod(uncx_url, 'post', uncxBody, uncxPanswap ? 'BNB' : 'ETH');
+    } else if(launchpad.value == 'cookiesale') {
+        getCookieSales();
     } else {
         dxsale = false;
         getPresalesMethod();
