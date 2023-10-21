@@ -257,7 +257,7 @@ body{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); /* Safari support */
     z-index: -1;
-  }
+}
 
 .cookie-modal {
     height: 100vh;
